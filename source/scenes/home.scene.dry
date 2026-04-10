@@ -1,0 +1,179 @@
+title: Home
+subtitle: A practical introduction to Holistic Management
+is-special: true
+new-page: true
+tags: root
+
+
+{!
+<article class="article article--landing" aria-labelledby="home-top">
+  <div class="article-hero">
+    <div class="article-hero-text">
+      <p class="article-kicker">Interactive story + decision framework</p>
+      <h1 id="home-top">Manage Complexity</h1>
+      <p class="article-tagline">
+        Get a taste of how our world is managed into crisis — and learn a framework to prevent it.
+      </p>
+
+      <nav class="article-nav" aria-label="Homepage navigation">
+        <ul class="article-nav-list">
+          <li><a class="article-nav-link" href="#home-about">Why this exists</a></li>
+          <li><a class="article-nav-link" href="#home-how">What you learn</a></li>
+          <li><a class="article-nav-link" href="#home-about-us">About us</a></li>
+          <li><a class="article-nav-link" href="#home-learning-groups">Further learning</a></li>
+        </ul>
+      </nav>
+
+      <div class="article-actions">
+        <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing the story">
+          Start playing
+        </button>
+        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('tutorial');" aria-label="Open the tutorial">
+          Tutorial
+        </button>
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('faq');" aria-label="Open frequently asked questions">
+          FAQ
+        </button>
+      </div>
+    </div>
+
+    <figure class="article-hero-media" aria-label="Atmospheric image">
+      <img
+        class="article-hero-img"
+        src="assets/imgs/fog-ship.jpg"
+        alt="A ship fading into fog at a quiet harbor, suggesting uncertainty and navigation."
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="800"
+      >
+      <figcaption class="article-hero-caption">A calm harbor is still a system. The question is: are you steering it on purpose?</figcaption>
+    </figure>
+  </div>
+
+  <div class="article-grid">
+    <div class="article-card" id="home-about" aria-labelledby="home-about-title">
+      <h2 id="home-about-title">Why this exists</h2>
+      <p>
+        This project is an interactive introduction to a new management framework. It is designed for us to thrive in our complex world and to avoid unintended consequences.
+      </p>
+
+      <div class="article-callout" role="note" aria-labelledby="home-value-title">
+        <h3 id="home-value-title">Value proposition</h3>
+        <p>
+          Turn vague complexity into workable clarity: a shared purpose, a future resource base, and a repeatable set of checks for deciding what to do next.
+        </p>
+      </div>
+    </div>
+
+    <div class="article-card" id="home-how" aria-labelledby="home-how-title">
+      <h2 id="home-how-title">What you learn</h2>
+
+      <ul class="article-steps">
+        <li class="article-step">
+          <h3>1) Define the whole</h3>
+          <p>Clarify decision makers, your resource base, and money sources so the “system boundary” is real.</p>
+        </li>
+        <li class="article-step">
+          <h3>2) Write your holistic context</h3>
+          <p>Describe the quality of life you want and the future resource base needed to sustain it.</p>
+        </li>
+        <li class="article-step">
+          <h3>3) Run the filter questions</h3>
+          <p>Test actions against social, economic, and environmental consequences before you commit.</p>
+        </li>
+      </ul>
+
+      <div class="article-actions article-actions-compact">
+        <a class="article-link-btn" href="#home-top" aria-label="Back to the top of the homepage">Back to top</a>
+        <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('info');" aria-label="Open the info panel scene">
+          Open reference
+        </button>
+      </div>
+    </div>
+
+    <div class="article-card" id="home-about-us" aria-labelledby="home-about-us-title">
+      <h2 id="home-about-us-title">About us</h2>
+      <p>
+        We are a collective of learners, practitioners, facilitators, and builders who care about better management of complex
+        systems — not as an abstract idea, but as a daily practice.
+      </p>
+    </div>
+
+    <div class="article-card" id="home-learning-groups" aria-labelledby="home-learning-groups-title">
+      <h2 id="home-learning-groups-title">Further learning</h2>
+      <p>
+        Learning works best in community. Join a local group, or start one with friends, colleagues, or neighbors and learn by
+        practicing real decisions together.
+      </p>
+
+      <ul class="article-steps">
+        <li class="article-step">
+          <h3>Join a group</h3>
+          <p>Find a group near you or join remotely. A sign-up form will be added here soon.</p>
+          <div class="article-actions article-actions-compact">
+            <button class="article-link-btn" type="button" aria-label="Join a learning group (coming soon)">
+              Join a group
+            </button>
+          </div>
+        </li>
+        <li class="article-step">
+          <h3>Host a group</h3>
+          <p>Pick a time and host a learning group. A registration form will be added here soon.</p>
+          <div class="article-actions article-actions-compact">
+            <button class="article-link-btn" type="button" aria-label="Host a learning group (coming soon)">
+              Host a group
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="home-cta" class="article-card article-card-wide" aria-labelledby="home-cta-title">
+      <h2 id="home-cta-title">Ready?</h2>
+      <p>
+        Learn a way to make decisions that hold together socially, economically, and environmentally.
+      </p>
+      <div class="article-actions">
+        <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing now">
+          Start now
+        </button>
+        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('credits');" aria-label="View credits">
+          Credits
+        </button>
+      </div>
+    </div>
+
+    <div class="article-card article-card-wide" id="home-faq" aria-labelledby="home-faq-title">
+      <h2 id="home-faq-title">FAQ</h2>
+      <details>
+        <summary>Do I need to know Holistic Management already?</summary>
+        <p>No. The story is designed as a guided introduction. Use the Tutorial and the Info panel as your reference while you play.</p>
+      </details>
+      <details>
+        <summary>Is this meant for individuals or organizations?</summary>
+        <p>Both. The framework scales from personal decisions to teams and organizations, as long as the “whole” is defined clearly.</p>
+      </details>
+      <div class="article-actions article-actions-compact">
+        <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('faq');" aria-label="Open the full FAQ scene">
+          Read the full FAQ
+        </button>
+      </div>
+    </div>
+
+    <div class="article-card article-card-wide" id="home-feedback" aria-labelledby="home-feedback-title">
+      <h2 id="home-feedback-title">Feedback</h2>
+      <p>
+        Help us improve the story, the interface, and the learning experience. A feedback form will be added here soon.
+      </p>
+      <div class="article-actions article-actions-compact">
+        <button class="article-link-btn" type="button" aria-label="Leave feedback (form coming soon)">
+          Leave feedback
+        </button>
+      </div>
+    </div>
+  </div>
+</article>
+!}
+
+- @backSpecialScene: Back

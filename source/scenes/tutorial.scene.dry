@@ -1,0 +1,124 @@
+title: Tutorial
+subtitle: Instructions
+order: 2
+is-special: true
+new-page: true
+tags: root
+
+{!
+<article class="article article--tutorial" aria-labelledby="tutorial-top">
+  <div class="article-hero">
+    <div class="article-hero-text">
+      <p class="article-kicker">How to use the interface</p>
+      <h1 id="tutorial-top">Tutorial</h1>
+      <p class="article-tagline">This story plays like a chat. Click answers to continue, and use the side panels as your working tools.</p>
+
+      <nav class="article-nav" aria-label="Tutorial navigation">
+        <ul class="article-nav-list">
+          <li><a class="article-nav-link" href="#tutorial-basics">Basics</a></li>
+          <li><a class="article-nav-link" href="#tutorial-sidebars">Sidebars</a></li>
+          <li><a class="article-nav-link" href="#tutorial-achievements">Achievements</a></li>
+        </ul>
+      </nav>
+
+      <div class="article-actions">
+        <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing the story">
+          Start playing
+        </button>
+        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('faq');" aria-label="Open frequently asked questions">
+          FAQ
+        </button>
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('info');" aria-label="Open the reference info scene">
+          Open reference
+        </button>
+      </div>
+
+      <p class="article-meta">
+        Tip: Use the map icon to open Progress, and the info icon to open the framework reference while you play.
+      </p>
+    </div>
+
+    <figure class="article-hero-media" aria-label="Atmospheric image">
+      <img
+        class="article-hero-img"
+        src="assets/imgs/pier-boats.jpg"
+        alt="Small boats tied to a pier, suggesting steady navigation with simple tools."
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="800"
+      >
+      <figcaption class="article-hero-caption">Keep your place, keep your tools visible, keep moving.</figcaption>
+    </figure>
+  </div>
+
+  <div class="article-grid">
+    <div class="article-card" id="tutorial-basics" aria-labelledby="tutorial-basics-title">
+      <h2 id="tutorial-basics-title">Basics</h2>
+      <p>Click an answer to continue. If you can’t see the newest message, scroll.</p>
+
+      <div class="article-callout" role="note" aria-labelledby="tutorial-marker-title">
+        <h3 id="tutorial-marker-title">New content marker</h3>
+        <p>New content appears below a bar like this:</p>
+        <hr id="read-marker" role="separator" data-enhanced="1">
+      </div>
+    </div>
+
+    <div class="article-card" id="tutorial-sidebars" aria-labelledby="tutorial-sidebars-title">
+      <h2 id="tutorial-sidebars-title">Sidebars</h2>
+      <p>Use the buttons in the top bar to open the side panels:</p>
+
+      <ul class="article-steps">
+        <li class="article-step">
+          <h3>Progress (left)</h3>
+          <p>Shows your progress and your choices.</p>
+        </li>
+        <li class="article-step">
+          <h3>Info (right)</h3>
+          <p>Gives you access to FAQ, further information, theme toggle, and save/load.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="article-card article-card-wide" id="tutorial-achievements" aria-labelledby="tutorial-achievements-title">
+      <h2 id="tutorial-achievements-title">Achievements you can unlock</h2>
+      <p class="article-subtle">
+        These achievements mark skills you build as you play. They are designed to be earned through clear thinking, not speed.
+      </p>
+
+      <ul class="article-badges">
+        <li class="article-badge">
+          <h3>Whole Defined</h3>
+          <p>All decision makers named, resources captured, and money sources visible.</p>
+        </li>
+        <li class="article-badge">
+          <h3>Holistic Context Written</h3>
+          <p>A quality of life statement and future resource base you can actually test decisions against.</p>
+        </li>
+        <li class="article-badge">
+          <h3>Weak Link Found</h3>
+          <p>You identify what is truly limiting progress and respond before you spend more effort.</p>
+        </li>
+        <li class="article-badge">
+          <h3>Sustainability Checked</h3>
+          <p>Actions move toward your future resource base, not away from it.</p>
+        </li>
+        <li class="article-badge">
+          <h3>Calm Under Pressure</h3>
+          <p>You keep decisions aligned even when the story throws trade-offs and urgency at you.</p>
+        </li>
+        <li class="article-badge">
+          <h3>Feedback Loop Builder</h3>
+          <p>You refine the context as you learn, instead of treating the first draft as permanent.</p>
+        </li>
+      </ul>
+
+      <div class="article-actions article-actions-compact">
+        <a class="article-link-btn" href="#tutorial-top" aria-label="Back to the top of the tutorial">Back to top</a>
+      </div>
+    </div>
+  </div>
+</article>
+!}
+
+- @backSpecialScene: Back
