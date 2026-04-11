@@ -31,8 +31,8 @@ tags: root
         <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('tutorial');" aria-label="Open the tutorial">
           Tutorial
         </button>
-        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('faq');" aria-label="Open frequently asked questions">
-          FAQ
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('credits');" aria-label="View credits">
+          Credits
         </button>
       </div>
     </div>
@@ -55,13 +55,13 @@ tags: root
     <div class="article-card" id="home-about" aria-labelledby="home-about-title">
       <h2 id="home-about-title">Why this exists</h2>
       <p>
-        This project is an interactive introduction to a new management framework. It is designed for us to thrive in our complex world and to avoid unintended consequences.
+        This project is an interactive introduction to a new management framework. Thrive in complexity and avoid unintended consequences!
       </p>
 
       <div class="article-callout" role="note" aria-labelledby="home-value-title">
-        <h3 id="home-value-title">Value proposition</h3>
+        <h3 id="home-value-title">Takeaways</h3>
         <p>
-          Turn vague complexity into workable clarity: a shared purpose, a future resource base, and a repeatable set of checks for deciding what to do next.
+          Navigate complexity with confidence: your shared purpose, your future resource base, and a repeatable set of checks for deciding what to do next.
         </p>
       </div>
     </div>
@@ -112,8 +112,9 @@ tags: root
           <h3>Join a group</h3>
           <p>Find a group near you or join remotely. A sign-up form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" aria-label="Join a learning group (coming soon)">
-              Join a group
+            <button class="article-link-btn" type="button" aria-label="Join a learning group">
+              Join a group <br>
+              (coming soon)
             </button>
           </div>
         </li>
@@ -121,8 +122,9 @@ tags: root
           <h3>Host a group</h3>
           <p>Pick a time and host a learning group. A registration form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" aria-label="Host a learning group (coming soon)">
-              Host a group
+            <button class="article-link-btn" type="button" aria-label="Host a learning group">
+              Host a group <br>
+              (coming soon)
             </button>
           </div>
         </li>
@@ -138,8 +140,8 @@ tags: root
         <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing now">
           Start now
         </button>
-        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('credits');" aria-label="View credits">
-          Credits
+        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('tutorial');" aria-label="Open the tutorial">
+          Tutorial
         </button>
       </div>
     </div>
