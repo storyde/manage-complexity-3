@@ -11,13 +11,13 @@ tags: root
     <div class="article-hero-text">
       <p class="article-kicker">How to use the interface</p>
       <h1 id="tutorial-top">Tutorial</h1>
-      <p class="article-tagline">This story plays like a chat. Click answers to continue, and use the side panels as your working tools.</p>
+      <p class="article-tagline">This story plays like a chat. Click answers to continue.</p>
 
       <nav class="article-nav" aria-label="Tutorial navigation">
         <ul class="article-nav-list">
           <li><a class="article-nav-link" href="#tutorial-basics">Basics</a></li>
           <li><a class="article-nav-link" href="#tutorial-sidebars">Sidebars</a></li>
-          <li><a class="article-nav-link" href="#tutorial-achievements">Achievements</a></li>
+          <li><a class="article-nav-link" href="#tutorial-learn">What you learn</a></li>
         </ul>
       </nav>
 
@@ -32,90 +32,58 @@ tags: root
           Open reference
         </button>
       </div>
-
-      <p class="article-meta">
-        Tip: Use the map icon to open Progress, and the info icon to open the framework reference while you play.
-      </p>
     </div>
-
-    <figure class="article-hero-media" aria-label="Atmospheric image">
-      <img
-        class="article-hero-img"
-        src="assets/imgs/pier-boats.jpg"
-        alt="Small boats tied to a pier, suggesting steady navigation with simple tools."
-        loading="lazy"
-        decoding="async"
-        width="1200"
-        height="800"
-      >
-      <figcaption class="article-hero-caption">Keep your place, keep your tools visible, keep moving.</figcaption>
-    </figure>
   </div>
 
   <div class="article-grid">
     <div class="article-card" id="tutorial-basics" aria-labelledby="tutorial-basics-title">
       <h2 id="tutorial-basics-title">Basics</h2>
       <p>Click an answer to continue. If you can’t see the newest message, scroll.</p>
-
-      <div class="article-callout" role="note" aria-labelledby="tutorial-marker-title">
-        <h3 id="tutorial-marker-title">New content marker</h3>
-        <p>New content appears below a bar like this:</p>
-        <hr id="read-marker" role="separator" data-enhanced="1">
-      </div>
     </div>
 
-    <div class="article-card" id="tutorial-sidebars" aria-labelledby="tutorial-sidebars-title">
+    <div class="article-card" id="tutorial-marker" aria-labelledby="tutorial-marker-title">
+      <h2 id="tutorial-marker-title">New content marker</h2>
+      <p>New content appears below a bar like this:</p>
+      <hr id="read-marker" role="separator" data-enhanced="1">
+    </div>
+
+    <div class="article-card article-card-wide" id="tutorial-sidebars" aria-labelledby="tutorial-sidebars-title">
       <h2 id="tutorial-sidebars-title">Sidebars</h2>
       <p>Use the buttons in the top bar to open the side panels:</p>
 
-      <ul class="article-steps">
-        <li class="article-step">
-          <h3>Progress (left)</h3>
+      <div class="article-grid">
+        <div class="article-card" id="tutorial-progress" aria-labelledby="tutorial-progress-title">
+          <h3 id="tutorial-progress-title">Progress (left)</h3>
           <p>Shows your progress and your choices.</p>
-        </li>
-        <li class="article-step">
-          <h3>Info (right)</h3>
+        </div>
+
+        <div class="article-card" id="tutorial-info" aria-labelledby="tutorial-info-title">
+          <h3 id="tutorial-info-title">Info (right)</h3>
           <p>Gives you access to FAQ, further information, theme toggle, and save/load.</p>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="article-card article-card-wide" id="tutorial-achievements" aria-labelledby="tutorial-achievements-title">
-      <h2 id="tutorial-achievements-title">Achievements you can unlock</h2>
-      <p class="article-subtle">
-        These achievements mark skills you build as you play. They are designed to be earned through clear thinking, not speed.
-      </p>
-
+    <div class="article-card article-card-wide" id="tutorial-learn" aria-labelledby="tutorial-learn-title">
+      <h2 id="tutorial-learn-title">What you learn</h2>
       <ul class="article-badges">
         <li class="article-badge">
-          <h3>Whole Defined</h3>
-          <p>All decision makers named, resources captured, and money sources visible.</p>
+          <h3>1) Define the whole</h3>
+          <p>Clarify decision makers, your resource base, and money sources so the “system boundary” is real.</p>
         </li>
         <li class="article-badge">
-          <h3>Holistic Context Written</h3>
-          <p>A quality of life statement and future resource base you can actually test decisions against.</p>
+          <h3>2) Write your holistic context</h3>
+          <p>Describe the quality of life you want and the future resource base needed to sustain it.</p>
         </li>
         <li class="article-badge">
-          <h3>Weak Link Found</h3>
-          <p>You identify what is truly limiting progress and respond before you spend more effort.</p>
+          <h3>3) Run the filter questions</h3>
+          <p>Test actions against social, economic, and environmental consequences before you commit.</p>
         </li>
         <li class="article-badge">
-          <h3>Sustainability Checked</h3>
-          <p>Actions move toward your future resource base, not away from it.</p>
-        </li>
-        <li class="article-badge">
-          <h3>Calm Under Pressure</h3>
-          <p>You keep decisions aligned even when the story throws trade-offs and urgency at you.</p>
-        </li>
-        <li class="article-badge">
-          <h3>Feedback Loop Builder</h3>
-          <p>You refine the context as you learn, instead of treating the first draft as permanent.</p>
+          <h3>4) Learn as you go</h3>
+          <p>Gain knowledge along the way and unlock achievements.</p>
         </li>
       </ul>
-
-      <div class="article-actions article-actions-compact">
-        <a class="article-link-btn" href="#tutorial-top" aria-label="Back to the top of the tutorial">Back to top</a>
-      </div>
     </div>
   </div>
 </article>

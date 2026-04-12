@@ -17,10 +17,10 @@ tags: root
 
       <nav class="article-nav" aria-label="Homepage navigation">
         <ul class="article-nav-list">
-          <li><a class="article-nav-link" href="#home-about">Why this exists</a></li>
-          <li><a class="article-nav-link" href="#home-how">What you learn</a></li>
-          <li><a class="article-nav-link" href="#home-about-us">About us</a></li>
           <li><a class="article-nav-link" href="#home-learning-groups">Further learning</a></li>
+          <li><a class="article-nav-link" href="#home-about-us">About us</a></li>
+          <li><a class="article-nav-link" href="#home-faq">FAQ</a></li>
+          <li><a class="article-nav-link" href="#home-feedback">Feedback</a></li>
         </ul>
       </nav>
 
@@ -52,83 +52,61 @@ tags: root
   </div>
 
   <div class="article-grid">
-    <div class="article-card" id="home-about" aria-labelledby="home-about-title">
-      <h2 id="home-about-title">Why this exists</h2>
-      <p>
-        This project is an interactive introduction to a new management framework. Thrive in complexity and avoid unintended consequences!
-      </p>
-
-      <div class="article-callout" role="note" aria-labelledby="home-value-title">
-        <h3 id="home-value-title">Takeaways</h3>
+    <div class="article-card" id="home-language" aria-labelledby="home-language-title">
+      <div class="article-callout" role="note" aria-labelledby="home-language-title">
+        <h3 id="home-language-title">Choose your language</h3>
         <p>
-          Navigate complexity with confidence: your shared purpose, your future resource base, and a repeatable set of checks for deciding what to do next.
+          Translations will be added soon.
         </p>
+        <div class="article-actions article-actions-compact">
+          <button class="article-link-btn" type="button" aria-label="English (coming soon)">
+            English (coming soon)
+          </button>
+          <button class="article-link-btn" type="button" aria-label="Deutsch (coming soon)">
+            Deutsch (coming soon)
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="article-card" id="home-how" aria-labelledby="home-how-title">
-      <h2 id="home-how-title">What you learn</h2>
-
-      <ul class="article-steps">
-        <li class="article-step">
-          <h3>1) Define the whole</h3>
-          <p>Clarify decision makers, your resource base, and money sources so the “system boundary” is real.</p>
-        </li>
-        <li class="article-step">
-          <h3>2) Write your holistic context</h3>
-          <p>Describe the quality of life you want and the future resource base needed to sustain it.</p>
-        </li>
-        <li class="article-step">
-          <h3>3) Run the filter questions</h3>
-          <p>Test actions against social, economic, and environmental consequences before you commit.</p>
-        </li>
-      </ul>
-
-      <div class="article-actions article-actions-compact">
-        <a class="article-link-btn" href="#home-top" aria-label="Back to the top of the homepage">Back to top</a>
-        <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('info');" aria-label="Open the info panel scene">
-          Open reference
-        </button>
-      </div>
-    </div>
-
-    <div class="article-card" id="home-about-us" aria-labelledby="home-about-us-title">
-      <h2 id="home-about-us-title">About us</h2>
+    <div class="article-card" id="home-about" aria-labelledby="home-about-title">
+      <h2 id="home-about-title">Complexity is wonderfull</h2>
       <p>
-        We are a collective of learners, practitioners, facilitators, and builders who care about better management of complex
-        systems — not as an abstract idea, but as a daily practice.
+        We just need to learn how to go with it. 
+      </p>
+      <p>
+        This project is an interactive introduction to a new management framework: navigating complexity with your shared holistic context. 
       </p>
     </div>
 
-    <div class="article-card" id="home-learning-groups" aria-labelledby="home-learning-groups-title">
+    <div class="article-card article-card-wide" id="home-learning-groups" aria-labelledby="home-learning-groups-title">
       <h2 id="home-learning-groups-title">Further learning</h2>
       <p>
         Learning works best in community. Join a local group, or start one with friends, colleagues, or neighbors and learn by
         practicing real decisions together.
       </p>
 
-      <ul class="article-steps">
-        <li class="article-step">
-          <h3>Join a group</h3>
+      <div class="article-grid">
+        <div class="article-card" id="home-join-group" aria-labelledby="home-join-group-title">
+          <h3 id="home-join-group-title">Join a group</h3>
           <p>Find a group near you or join remotely. A sign-up form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" aria-label="Join a learning group">
-              Join a group <br>
-              (coming soon)
+            <button class="article-link-btn" type="button" aria-label="Join a group (coming soon)">
+              Join a group (coming soon)
             </button>
           </div>
-        </li>
-        <li class="article-step">
-          <h3>Host a group</h3>
+        </div>
+
+        <div class="article-card" id="home-host-group" aria-labelledby="home-host-group-title">
+          <h3 id="home-host-group-title">Host a group</h3>
           <p>Pick a time and host a learning group. A registration form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" aria-label="Host a learning group">
-              Host a group <br>
-              (coming soon)
+            <button class="article-link-btn" type="button" aria-label="Host a group (coming soon)">
+              Host a group (coming soon)
             </button>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
     <div id="home-cta" class="article-card article-card-wide" aria-labelledby="home-cta-title">
@@ -144,6 +122,14 @@ tags: root
           Tutorial
         </button>
       </div>
+    </div>
+
+    <div class="article-card article-card-wide" id="home-about-us" aria-labelledby="home-about-us-title">
+      <h2 id="home-about-us-title">About us</h2>
+      <p>
+        We are a collective of learners, practitioners, facilitators, and builders who care about better management of complex
+        systems — not as an abstract idea, but as a daily practice.
+      </p>
     </div>
 
     <div class="article-card article-card-wide" id="home-faq" aria-labelledby="home-faq-title">

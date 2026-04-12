@@ -1937,6 +1937,10 @@ ul.choices li:focus-visible {
   animation: articleReveal 0.5s ease both;
 }
 
+#content .article--tutorial .article-hero {
+  grid-template-columns: 1fr;
+}
+
 .theme-dark #content .article-hero {
   background: transparent;
   box-shadow: none;
@@ -2138,6 +2142,10 @@ ul.choices li:focus-visible {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(var(--accent-sky-rgb), 0.35);
   background: rgba(var(--accent-sky-rgb), 0.08);
+}
+
+#content .article-card > .article-callout:first-child {
+  margin-top: 0;
 }
 
 #content .article-callout p {
