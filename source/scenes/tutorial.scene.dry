@@ -25,12 +25,6 @@ tags: root
         <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing the story">
           Start playing
         </button>
-        <button class="article-btn article-btn-secondary" type="button" onclick="dendryUI.dendryEngine.goToScene('faq');" aria-label="Open frequently asked questions">
-          FAQ
-        </button>
-        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('info');" aria-label="Open the reference info scene">
-          Open reference
-        </button>
       </div>
     </div>
   </div>
@@ -51,7 +45,7 @@ tags: root
       <h2 id="tutorial-sidebars-title">Sidebars</h2>
       <p>Use the buttons in the top bar to open the side panels:</p>
 
-      <div class="article-grid">
+      <div class="article-grid article-grid--compact">
         <div class="article-card" id="tutorial-progress" aria-labelledby="tutorial-progress-title">
           <h3 id="tutorial-progress-title">Progress (left)</h3>
           <p>Shows your progress and your choices.</p>
