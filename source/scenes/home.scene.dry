@@ -82,7 +82,7 @@ tags: root
     <div class="article-card article-card-wide" id="home-learning-groups" aria-labelledby="home-learning-groups-title">
       <h2 id="home-learning-groups-title">Further learning</h2>
       <p>
-        Learning works best in community. Join a local group, or start one with friends, colleagues, or neighbors and learn by
+        Join a learning group, or start one with friends, colleagues, or neighbors and learn by
         practicing real decisions together.
       </p>
 
@@ -91,18 +91,18 @@ tags: root
           <h3 id="home-join-group-title">Join a group</h3>
           <p>Find a group near you or join remotely. A sign-up form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" disabled aria-label="Join a group (coming soon)">
-              Join a group (coming soon)
+            <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('learning_groups');" aria-label="Open learning groups and events">
+              Learning groups and events
             </button>
           </div>
         </div>
 
         <div class="article-card" id="home-host-group" aria-labelledby="home-host-group-title">
-          <h3 id="home-host-group-title">Host a group</h3>
-          <p>Pick a time and host a learning group. A registration form will be added here soon.</p>
+          <h3 id="home-host-group-title">Professional facilitation</h3>
+          <p>Bring a trained facilitator to your team to help you learn by practicing real decisions together. A request form will be added here soon.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" disabled aria-label="Host a group (coming soon)">
-              Host a group (coming soon)
+            <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('facilitators');" aria-label="Open the facilitator booking page">
+              Book a facilitator
             </button>
           </div>
         </div>
@@ -169,7 +169,7 @@ tags: root
     <div class="article-card article-card-wide" id="home-feedback" aria-labelledby="home-feedback-title">
       <h2 id="home-feedback-title">Feedback</h2>
       <p>
-        Help us improve the story, the interface, and the learning experience. A feedback form will be added here soon.
+        Help us improve the learning experience. A feedback form will be added here soon.
       </p>
       <div class="article-actions article-actions-compact">
         <button class="article-link-btn" type="button" disabled aria-label="Leave feedback (form coming soon)">
