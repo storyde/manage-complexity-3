@@ -72,7 +72,7 @@ tags: root
     <div class="article-card" id="home-about" aria-labelledby="home-about-title">
       <h2 id="home-about-title">Complexity is wonderful</h2>
       <p>
-        We just need to learn how to work with it.
+        Don’t aim for control — aim for alignment.
       </p>
       <p>
         This project is an interactive introduction to a new management framework: navigating complexity with a shared holistic context.
@@ -82,24 +82,23 @@ tags: root
     <div class="article-card article-card-wide" id="home-learning-groups" aria-labelledby="home-learning-groups-title">
       <h2 id="home-learning-groups-title">Further learning</h2>
       <p>
-        Join a learning group, or start one with friends, colleagues, or neighbors and learn by
-        practicing real decisions together.
+        Learn by practicing real decisions together.
       </p>
 
       <div class="article-grid article-grid--compact">
         <div class="article-card" id="home-join-group" aria-labelledby="home-join-group-title">
-          <h3 id="home-join-group-title">Join a group</h3>
-          <p>Find a group near you or join remotely. A sign-up form will be added here soon.</p>
+          <h3 id="home-join-group-title">Join an event</h3>
+          <p>Join a learning event, or start one with friends, colleagues, or neighbors.</p>
           <div class="article-actions article-actions-compact">
-            <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('learning_groups');" aria-label="Open learning groups and events">
-              Learning groups and events
+            <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('learning_events');" aria-label="Open learning events">
+              Learning events
             </button>
           </div>
         </div>
 
         <div class="article-card" id="home-host-group" aria-labelledby="home-host-group-title">
           <h3 id="home-host-group-title">Professional facilitation</h3>
-          <p>Bring a trained facilitator to your team to help you learn by practicing real decisions together. A request form will be added here soon.</p>
+          <p>Bring a trained facilitator to your team.</p>
           <div class="article-actions article-actions-compact">
             <button class="article-link-btn" type="button" onclick="dendryUI.dendryEngine.goToScene('facilitators');" aria-label="Open the facilitator booking page">
               Book a facilitator
