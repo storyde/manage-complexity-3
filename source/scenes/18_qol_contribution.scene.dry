@@ -82,6 +82,23 @@ tags: qol_aspiration
 
 Me: A bold pioneer exploring new ground
 
+@qolas_custom
+title: Custom answer
+order: 20
+tags: qol_aspiration
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-aspiration" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolas_custom_answer: Save
+
+@qolas_custom_answer
+title: Save
+go-to: qolac_accomplish
+
+Me: [+ qol-aspiration +]
+
 # Accomplishment - What do we ultimately want to accomplish?
 
 @qolac_accomplish
@@ -179,3 +196,20 @@ go-to: 19_qol_textarea
 tags: qol_accomplish
 
 Me: Innovation that is ethical, responsible and worthy of trust
+
+@qolac_custom
+title: Custom answer
+order: 20
+tags: qol_accomplish
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-accomplish" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolac_custom_answer: Save
+
+@qolac_custom_answer
+title: Save
+go-to: 19_qol_textarea
+
+Me: [+ qol-accomplish +]

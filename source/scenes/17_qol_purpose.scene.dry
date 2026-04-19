@@ -80,6 +80,23 @@ tags: qol_purpose
 
 Me: Mutual care, solidarity and standing by one another
 
+@qolp_custom
+title: Custom answer
+order: 20
+tags: qol_purpose
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolp_custom_answer: Save
+
+@qolp_custom_answer
+title: Save
+go-to: 18_qol_contribution
+
+Me: [+ qol-purpose +]
+
 # Purpose - Organisation - Statement of Purpose
 
 @qolp_organisation
@@ -87,8 +104,8 @@ title: Organisational statement of purpose
 on-arrival: qol-purpose = st-purpose
 go-to: 18_qol_contribution
 
-Facilyn: If you're working within an organisation, you already have an answer to this question in your Statement of Purpose: 
+Facilyn: If you're working within an organisation, your Statement of Purpose most likely already answers this question: 
 
-Paper: [+ st-purpose +]
+{!<textarea class="textarea" data-quality="qol-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);">!}[+ test +]{!</textarea>!}
 
 Facilyn: The next two questions help you find personal meaning in that larger purpose. 

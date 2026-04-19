@@ -2,7 +2,7 @@ title: Continue
 subtitle: Describe your future resource base
 on-arrival: progress = 24
 
-Me: [+ textarea +]
+Me: [+ complement +]
 
 Facilyn: Now we look ahead: what must your future resource base be like to sustain that quality of life?
 
@@ -77,3 +77,20 @@ go-to: 21_frb_environment
 tags: behavior_aspects
 
 Me: Adaptable, practical and open-minded
+
+@frbp_custom
+title: Custom answer
+order: 20
+tags: behavior_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="frb-people" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @frbp_custom_answer: Save
+
+@frbp_custom_answer
+title: Save
+go-to: 21_frb_environment
+
+Me: [+ frb-people +]

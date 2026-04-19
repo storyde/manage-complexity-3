@@ -9,7 +9,7 @@ tags: root
 <article class="article article--landing" aria-labelledby="home-top">
   <div class="article-hero">
     <div class="article-hero-text">
-      <p class="article-kicker">Interactive story + decision framework</p>
+      <p class="article-kicker">Discover how to</p>
       <h1 id="home-top">Manage Complexity</h1>
       <p class="article-tagline">
         Get a taste of how our world is managed into crisis — and learn a framework to prevent it.
@@ -33,6 +33,9 @@ tags: root
         </button>
         <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('credits');" aria-label="View credits">
           Credits
+        </button>
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('zz_test');" aria-label="View test">
+          Test
         </button>
       </div>
     </div>
@@ -135,7 +138,7 @@ tags: root
       <div class="article-callout" role="note" aria-labelledby="home-funding-title">
         <h3 id="home-funding-title">Donations</h3>
         <p>
-          If you want to support development and the learning groups, donations will be available soon.
+          If you want to support this project, every donation helps and goes a long way.
         </p>
         <div class="article-actions article-actions-compact">
           <button class="article-link-btn" type="button" disabled aria-label="Donate (coming soon)">

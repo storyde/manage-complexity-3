@@ -1187,7 +1187,7 @@ ul.choices li.unavailable {
 }
 
 /* Dendry Content Styling */
-#textarea {
+.textarea {
   width: 100%;
   max-width: 100%;
   min-height: 6em;

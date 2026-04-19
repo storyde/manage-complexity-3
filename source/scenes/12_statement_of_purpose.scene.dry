@@ -279,3 +279,20 @@ go-to: 13_qol_intro
 tags: st_purpose
 
 Me: Building cooperation across borders through diplomacy
+
+@stmp_custom
+title: Custom answer
+order: 20
+tags: st_purpose
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="st-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @stmp_custom_answer: Save
+
+@stmp_custom_answer
+title: Save
+go-to: 13_qol_intro
+
+Me: [+ st-purpose +]

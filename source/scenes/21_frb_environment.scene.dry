@@ -61,3 +61,20 @@ go-to: 22_holtext
 tags: environment_aspects
 
 Me: Stable, productive surroundings with fertile covered soils, clean water, functioning water and mineral cycles, and biodiversity that strengthens community dynamics and energy flow
+
+@frbe_custom
+title: Custom answer
+order: 20
+tags: environment_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="frb-environment" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @frbe_custom_answer: Save
+
+@frbe_custom_answer
+title: Save
+go-to: 22_holtext
+
+Me: [+ frb-environment +]

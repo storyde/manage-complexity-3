@@ -83,6 +83,23 @@ tags: challenge_aspects
 
 Me: Autonomy, responsibility and the charge of creative flow
 
+@qolc_custom
+title: Custom answer
+order: 20
+tags: challenge_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-challenge" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolc_custom_answer: Save
+
+@qolc_custom_answer
+title: Save
+go-to: qolg_growth
+
+Me: [+ qol-challenge +]
+
 # Growth
 
 @qolg_growth
@@ -203,3 +220,20 @@ go-to: 17_qol_purpose
 tags: growth_aspects
 
 Me: Build a culture that keeps learning, inventing and getting better
+
+@qolg_custom
+title: Custom answer
+order: 20
+tags: growth_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-growth" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolg_custom_answer: Save
+
+@qolg_custom_answer
+title: Save
+go-to: 17_qol_purpose
+
+Me: [+ qol-growth +]

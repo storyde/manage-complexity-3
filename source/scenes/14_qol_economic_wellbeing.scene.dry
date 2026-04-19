@@ -35,6 +35,23 @@ tags: economic_aspects
 
 Me: Robust health, personal safety and the means to meet essential needs without scraping by
 
+@qolew_custom
+title: Custom answer
+order: 20
+tags: economic_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-economic" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolew_custom_answer: Save
+
+@qolew_custom_answer
+title: Save
+go-to: qolewb_balance
+
+Me: [+ qol-economic +]
+
 # Balance
 
 @qolewb_balance
@@ -129,3 +146,20 @@ go-to: 15_qol_relationships
 tags: balance_aspects
 
 Me: Member wellbeing, with time to learn, contribute, connect and have a life beyond work
+
+@qolewb_custom
+title: Custom answer
+order: 20
+tags: balance_aspects
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="qol-balance" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @qolewb_custom_answer: Save
+
+@qolewb_custom_answer
+title: Save
+go-to: 15_qol_relationships
+
+Me: [+ qol-balance +]

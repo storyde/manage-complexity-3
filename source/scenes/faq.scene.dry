@@ -5,7 +5,7 @@ new-page: true
 
 = Frequently asked questions
 
-<h1>Holistic context and testing questions: </h1>
+{!<h1>Holistic context and testing questions: </h1>
 
 <details><summary>Why create a Holistic Context before making plans?</summary><p>Because plans are only useful if they move you toward the life and landscape you actually want. The Holistic Context gives decision makers a shared direction, so day-to-day choices, long-term strategy, and problem-solving are all tested against the same picture.</p></details>
 
@@ -31,6 +31,6 @@ new-page: true
 
 <details><summary>Why is gut feel the last testing question?</summary><p>Because it uses the picture you built from the other checks. It asks how you feel about the action in terms of your values, relationships, and consequences for others.</p></details>
 
-<details><summary>How can better management help prevent dust storms?</summary><p>In many areas of the world, the reason for biodiversity loss is management. That means desertification is not only something that happens to us; it is something we can influence. If management has helped create bare soil, weak water cycling, and declining biodiversity, then better management can help reverse that pattern. By testing actions against the Holistic Context, addressing root causes, and prioritising soil cover in brittle environments, people can improve biodiversity and may therefore be able to slow, stop, or reverse desertification and the conditions that lead to dust storms.</p></details>
+<details><summary>How can better management help prevent dust storms?</summary><p>In many areas of the world, the reason for biodiversity loss is management. That means desertification is not only something that happens to us; it is something we can influence. If management has helped create bare soil, weak water cycling, and declining biodiversity, then better management can help reverse that pattern. By testing actions against the Holistic Context, addressing root causes, and prioritising soil cover in brittle environments, people can improve biodiversity and may therefore be able to slow, stop, or reverse desertification and the conditions that lead to dust storms.</p></details>!}
 
 - @backSpecialScene: Back
