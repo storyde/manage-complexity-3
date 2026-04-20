@@ -26,12 +26,21 @@ Outside, a child crouches beside a cleaning robot and quietly places a leaf in i
 - #example_types
 
 @xmpl_custom
-title: I have my own example in mind
-on-arrival: example_type = "I have my own example in mind"
-go-to: xmpl_example_chosen
+title: Custom answer
+order: 20
 tags: example_types
 
-Me: I have my own example in mind.
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="example_type" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @xmpl_custom_answer
+
+@xmpl_custom_answer
+title: Save
+go-to: xmpl_example_chosen
+
+Me: [+ example_type +]
 
 Facilyn: Wonderful. 
 
