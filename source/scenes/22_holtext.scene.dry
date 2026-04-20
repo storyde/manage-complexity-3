@@ -5,7 +5,7 @@ Facilyn: Excellent. You now have your holistic context: your quality of life and
 
 Facilyn: If you stitch those phrases into full sentences, it might read like this:
 
-She fills in a few phrases, then hands you the Paper.
+She fills in a few words, then hands you the Paper.
 
 [? if player = "one" : Paper: <h1>Holistic Context:</h1><br>I want [+ qol-economic +] in a balanced life with [+ qol-balance +]. My relationships will be grounded in [+ qol-relationships +]. I thrive on [+ qol-challenge +] and want to be free to [+ qol-growth +]. I find purpose in [+ qol-purpose +]. I seek to be [+ qol-aspiration +] and want to contribute to [+ qol-accomplish +]. <br>[+ complement +] <br><br>I will act in ways that are [+ frb-people +]. <br><br>All to be ensured, for many generations to come, on a foundation of [+ frb-environment +]. ?]
 

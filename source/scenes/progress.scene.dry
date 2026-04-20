@@ -30,13 +30,10 @@ title: Progress
 
 [? if progress < 26 and wum-money != 0 : **Monetary resources:** [+ wum-money +] ?]
 
-
-[? if progress < 26 and player = "org" and st-purpose != 0 : <h2>Statement of Purpose</h2> ?]
-
-[? if progress < 26 and player = "org" and st-purpose != 0 : [+ st-purpose +] ?]
+[? if progress < 26 and player = "org" and st-purpose != 0 : **Statement of Purpose:** [+ st-purpose +] ?]
 
 
-[? if progress < 26 and qol-economic != 0 : **Quality of Life** ?]
+[? if progress < 26 and qol-economic != 0 : <h2>Quality of Life</h2> ?]
 
 [? if progress < 26 and qol-economic != 0 : **Economic well-being:** [+ qol-economic +] ?]
 

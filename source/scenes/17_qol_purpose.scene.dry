@@ -11,7 +11,7 @@ Facilyn: The next question is about your purpose: What are you about?
 @qolp_explanation
 title: What are these questions for?
 max-visits: 1
-order: 10
+order: 21
 tags: qol_purpose
 
 Me: What are these questions for?
@@ -89,7 +89,7 @@ Me: Custom answer
 
 {!<textarea class="textarea" data-quality="qol-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
 
-- @qolp_custom_answer: Save
+- @qolp_custom_answer
 
 @qolp_custom_answer
 title: Save
@@ -101,11 +101,17 @@ Me: [+ qol-purpose +]
 
 @qolp_organisation
 title: Organisational statement of purpose
-on-arrival: qol-purpose = st-purpose
-go-to: 18_qol_contribution
 
 Facilyn: If you're working within an organisation, your Statement of Purpose most likely already answers this question: 
 
-{!<textarea class="textarea" data-quality="qol-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);">!}[+ test +]{!</textarea>!}
+{!<textarea class="textarea" data-quality="qol-purpose" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);">!}[+ st-purpose +]{!</textarea>!}
+
+- @qolp_org_custom_answer
+
+@qolp_org_custom_answer
+title: Save
+go-to: 18_qol_contribution
+
+Me: [+ qol-purpose +]
 
 Facilyn: The next two questions help you find personal meaning in that larger purpose. 

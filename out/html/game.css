@@ -880,7 +880,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: var(--space-xl) 0;
 }
 
-.bubble.cpa {
+.bubble.cpa,
+.textarea {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.52) 100%);
   color: #1e2022;
   border: 1px solid rgba(255, 255, 255, 0.46);
@@ -899,7 +900,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Dark mode - Paper Style */
-.theme-dark .bubble.cpa {
+.theme-dark .bubble.cpa,
+.theme-dark .textarea {
   background: linear-gradient(180deg, rgba(45, 45, 45, 0.78) 0%, rgba(45, 45, 45, 0.56) 100%);
   color: #e9e0d1;
   border: 1px solid rgba(87, 87, 87, 0.55);
@@ -1189,11 +1191,7 @@ ul.choices li.unavailable {
 /* Dendry Content Styling */
 .textarea {
   width: 100%;
-  max-width: 100%;
-  min-height: 6em;
-  box-sizing: border-box;
-  display: block;
-  font: inherit;
+  min-height: 4em;
 }
 
 #progress progress {

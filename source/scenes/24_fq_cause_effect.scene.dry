@@ -11,7 +11,7 @@ Facilyn: It asks: "Does this action address the root cause of the problem?"
 @fqce_explanation
 title: I need help distinguishing cause from symptom
 max-visits: 1
-order: 10
+order: 21
 tags: cause_effect
 
 Me: I need help distinguishing cause from symptom.
