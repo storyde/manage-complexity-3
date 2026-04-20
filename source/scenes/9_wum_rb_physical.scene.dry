@@ -337,3 +337,20 @@ go-to: 10_wum_rb_human
 tags: physical_rcs
 
 Me: Embassies and diplomatic facilities
+
+@rbph_custom
+title: Custom answer
+order: 20
+tags: physical_rcs
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="rb-physical" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @rbph_custom_answer
+
+@rbph_custom_answer
+title: Save
+go-to: 10_wum_rb_human
+
+Me: [+ rb-physical +]

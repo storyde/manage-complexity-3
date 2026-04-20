@@ -329,3 +329,20 @@ go-to: 11_wum_money
 tags: human_rcs
 
 Me: Citizens and diplomatic counterparts.
+
+@rbhm_custom
+title: Custom answer
+order: 20
+tags: human_rcs
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="rb-human" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @rbhm_custom_answer
+
+@rbhm_custom_answer
+title: Save
+go-to: 11_wum_money
+
+Me: [+ rb-human +]

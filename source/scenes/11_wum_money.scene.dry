@@ -88,6 +88,24 @@ tags: monetary_rcs
 
 Me: Rent contributions and project grants.
 
+@wumm_custom
+title: Custom answer
+order: 20
+view-if: player != "org"
+tags: monetary_rcs
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="wum-money" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @wumm_custom_answer
+
+@wumm_custom_answer
+title: Save
+go-to: 13_qol_intro
+
+Me: [+ wum-money +]
+
 # Agriculture
 
 @wumm_agr_farm
@@ -337,3 +355,21 @@ go-to: 12_statement_of_purpose
 tags: monetary_rcs
 
 Me: Foreign affairs budget and diplomatic funding.
+
+@wumm_org_custom
+title: Custom answer
+order: 20
+view-if: player = "org"
+tags: monetary_rcs
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="wum-money" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @wumm_org_custom_answer
+
+@wumm_org_custom_answer
+title: Save
+go-to: 12_statement_of_purpose
+
+Me: [+ wum-money +]

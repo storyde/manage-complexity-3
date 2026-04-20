@@ -1,6 +1,5 @@
 title: Define decision-makers
 on-arrival: progress = 9
-view-if: player = "org"
 
 Facilyn: Nice.
 
@@ -259,3 +258,21 @@ go-to: 9_wum_rb_physical
 tags: decision_makers
 
 Me: Ambassadors and diplomatic staff.
+
+@dmkrs_org_custom
+title: Custom answer
+order: 20
+view-if: player = "org"
+tags: decision_makers
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="decision-makers" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @dmkrs_org_custom_answer
+
+@dmkrs_org_custom_answer
+title: Save
+go-to: 9_wum_rb_physical
+
+Me: [+ decision-makers +]

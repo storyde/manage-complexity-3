@@ -64,6 +64,8 @@ Me: Let's include the people I live or decide with, and anyone with veto power.
 
 Facilyn: Great. We’ll treat all of you together as the decision-makers in your whole under management.
 
+# Group
+
 @wum_dmkrs_group
 title: Got it
 view-if: player = "group"
@@ -77,8 +79,6 @@ Facilyn: Let’s start with the decision-makers. In your group, who makes decisi
 Facilyn: Try to be inclusive rather than exclusive. 
 
 - #decision_makers
-
-# Group
 
 @dmkrs_group_and_veto
 title: Group members 
@@ -102,3 +102,21 @@ tags: decision_makers
 Me: Just us.
 
 Facilyn: Good. That gives us the decision makers for your whole under management.
+
+@dmkrs_custom
+title: Custom answer
+order: 20
+view-if: player != "org"
+tags: decision_makers
+
+Me: Custom answer
+
+{!<textarea class="textarea" data-quality="decision-makers" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);"></textarea>!}
+
+- @dmkrs_custom_answer
+
+@dmkrs_custom_answer
+title: Save
+go-to: 9_wum_rb_physical
+
+Me: [+ decision-makers +]
