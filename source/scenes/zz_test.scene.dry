@@ -2,11 +2,45 @@ title: Test
 subtitle: Just a test choice
 order: 5
 is-special: true
-on-arrival: test = "testtext"
+on-arrival: {!
+if (!Q.holtext) {
+    const qolEconomic = Q["qol-economic"] || "";
+    const qolBalance = Q["qol-balance"] || "";
+    const qolRelationships = Q["qol-relationships"] || "";
+    const qolChallenge = Q["qol-challenge"] || "";
+    const qolGrowth = Q["qol-growth"] || "";
+    const qolPurpose = Q["qol-purpose"] || "";
+    const qolAspiration = Q["qol-aspiration"] || "";
+    const qolAccomplish = Q["qol-accomplish"] || "";
+    const complement = Q.complement || "";
+    const frbPeople = Q["frb-people"] || "";
+    const frbEnvironment = Q["frb-environment"] || "";
+
+    if (Q.player === "one") {
+        Q.holtext = `I want ${qolEconomic} in a balanced life with ${qolBalance}. My relationships will be grounded in ${qolRelationships}. I thrive on ${qolChallenge} and want to be free to ${qolGrowth}. I find purpose in ${qolPurpose}. I seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+${complement}
+
+I will act in ways that are ${frbPeople}.
+
+All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+    } else if (Q.player === "group" || Q.player === "org") {
+        Q.holtext = `We want ${qolEconomic} in balanced lives with ${qolBalance}. Our relationships will be grounded in ${qolRelationships}. We thrive on ${qolChallenge} and want to be free to ${qolGrowth}. We find purpose in ${qolPurpose}. We seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+${complement}
+
+We will act in ways that are ${frbPeople}.
+
+All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+    }
+}
+!}
 new-page: true
 tags: root
 
 = Title
+
+
+Paper: {!<h1>Holistic Context:</h1><br><div contenteditable="true" data-quality="holtext" style="white-space: pre-wrap;" oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.innerText);">!}[+ holtext +]{!</div>!}
+
 
 {!<textarea class="textarea" data-quality="test" placeholder="Write your custom answer." oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.value);">!}[+ test +]{!</textarea>!}
 

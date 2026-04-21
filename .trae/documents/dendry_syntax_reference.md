@@ -339,7 +339,7 @@ choose-if: {! return ((Q['a'] || 0) === (Q['b'] || 0)); !}
 
 * `Q['variable-name']` - Access/set quality values
 
-* `Q.variable-name` - Alternative syntax
+* `Q.variableName` - Alternative syntax with camelCase
 
 ## Quality Files (.quality.dry)
 
@@ -612,13 +612,7 @@ on-arrival: met_character = 1
 For this project specifically:
 
 ```bash
-bun run ../local-dendry/lib/cli/main.js make-html
-```
-
-General Dendry build:
-
-```bash
-npm run dendry make-html
+bun run ../dendry-chat/lib/cli/main.js make-html
 ```
 
 ***

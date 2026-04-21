@@ -151,3 +151,39 @@ A cargo robot pauses beside a stack of containers, apparently reassessing the co
 
 A small dog stares suspiciously at a cleaning robot passing along the dock. The robot, perhaps equally suspicious, pauses and slowly rolls around it.
 
+
+
+
+
+
+ {!
+if (!Q.holtext) {
+    const qolEconomic = Q["qol-economic"] || "";
+    const qolBalance = Q["qol-balance"] || "";
+    const qolRelationships = Q["qol-relationships"] || "";
+    const qolChallenge = Q["qol-challenge"] || "";
+    const qolGrowth = Q["qol-growth"] || "";
+    const qolPurpose = Q["qol-purpose"] || "";
+    const qolAspiration = Q["qol-aspiration"] || "";
+    const qolAccomplish = Q["qol-accomplish"] || "";
+    const complement = Q.complement || "";
+    const frbPeople = Q["frb-people"] || "";
+    const frbEnvironment = Q["frb-environment"] || "";
+
+    if (Q.player === "one") {
+        Q.holtext = `I want ${qolEconomic} in a balanced life with ${qolBalance}. My relationships will be grounded in ${qolRelationships}. I thrive on ${qolChallenge} and want to be free to ${qolGrowth}. I find purpose in ${qolPurpose}. I seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+${complement}
+
+I will act in ways that are ${frbPeople}.
+
+All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+    } else if (Q.player === "group" || Q.player === "org") {
+        Q.holtext = `We want ${qolEconomic} in balanced lives with ${qolBalance}. Our relationships will be grounded in ${qolRelationships}. We thrive on ${qolChallenge} and want to be free to ${qolGrowth}. We find purpose in ${qolPurpose}. We seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+${complement}
+
+We will act in ways that are ${frbPeople}.
+
+All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+    }
+}
+!}
