@@ -116,7 +116,7 @@ Facilyn: And in terms of contribution, what do you ultimately want to accomplish
 @qolac_lasting_impact
 title: Building conditions that leave future generations better off
 on-arrival: qol-accomplish = "building conditions that leave future generations better off"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Building conditions that leave future generations better off
@@ -124,7 +124,7 @@ Me: Building conditions that leave future generations better off
 @qolac_regenerate_systems
 title: Restoring damaged social and ecological systems
 on-arrival: qol-accomplish = "restoring damaged social and ecological systems"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Restoring damaged social and ecological systems
@@ -132,7 +132,7 @@ Me: Restoring damaged social and ecological systems
 @qolac_empower_others
 title: Helping others grow into their own strength and potential
 on-arrival: qol-accomplish = "helping others grow into their own strength and potential"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Helping others grow into their own strength and potential
@@ -143,7 +143,7 @@ Me: Helping others grow into their own strength and potential
 title: Building a life of deep meaning and quiet joy
 view-if: player = "one"
 on-arrival: qol-accomplish = "building a life of deep meaning and quiet joy"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Building a life of deep meaning and quiet joy
@@ -152,7 +152,7 @@ Me: Building a life of deep meaning and quiet joy
 title: Bringing unique potential into the world
 view-if: player = "one"
 on-arrival: qol-accomplish = "bringing unique potential into the world"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Bringing unique potential into the world
@@ -163,7 +163,7 @@ Me: Bringing unique potential into the world
 title: Building a resilient, supportive and vibrant community
 view-if: player = "group"
 on-arrival: qol-accomplish = "building a resilient, supportive and vibrant community"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Building a resilient, supportive and vibrant community
@@ -172,7 +172,7 @@ Me: Building a resilient, supportive and vibrant community
 title: Healing divides and fostering deep understanding
 view-if: player = "group"
 on-arrival: qol-accomplish = "healing divides and fostering deep understanding"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Healing divides and fostering deep understanding
@@ -183,7 +183,7 @@ Me: Healing divides and fostering deep understanding
 title: Solving hard problems that truly matter
 view-if: player = "org"
 on-arrival: qol-accomplish = "solving hard problems that truly matter"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Solving hard problems that truly matter
@@ -192,7 +192,7 @@ Me: Solving hard problems that truly matter
 title: Innovation that is ethical, responsible and worthy of trust
 view-if: player = "org"
 on-arrival: qol-accomplish = "innovation that is ethical, responsible and worthy of trust"
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 tags: qol_accomplish
 
 Me: Innovation that is ethical, responsible and worthy of trust
@@ -210,6 +210,6 @@ Me: Custom answer
 
 @qolac_custom_answer
 title: Save
-go-to: 19_qol_textarea
+go-to: 19_qol_complement
 
 Me: [+ qol-accomplish +]

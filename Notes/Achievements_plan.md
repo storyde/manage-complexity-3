@@ -4,21 +4,16 @@
 
 Replace the single visible progress bar in the scene progress.scene with a small progress dashboard that feels more like a game system while still fitting the reflective tone of the project.
 
-Keep the existing `progress` variable as the hidden backbone for scene flow and compatibility, but introduce separate track variables and qdisplay files for the visible progression system.
+Introduce separate track variables and qdisplay files for the visible progression system.
 
 ## Recommended Track Model
 
-### Keep
-
-- `progress` remains the master scene-sequencing variable
-- existing scene gating based on `progress` stays intact during the migration
-
 ### Add
 
-- `jrny-progress` for **Voyage Through Complexity**
-- `hctx-progress` for **Holistic Context Forged**
-- `fltr-progress` for **Decision Checks Mastered**
-- `knwl-progress` for **Concepts Understood**
+- `jrny-progress` for **Journy**
+- `hctx-progress` for **Holistic Context**
+- `fltr-progress` for **Decision Checks**
+- `knwl-progress` for **Known Concepts**
 - `knwl-progress-bar` for progress bar
 
 ## New Qdisplay Files
@@ -63,10 +58,6 @@ Why a short scale works:
 - it aligns naturally with the strongest milestone achievements
 - it avoids mirroring the old `progress` system too literally
 
-Suggested icon:
-
-- `⛵`
-
 ### 2. Holistic Context Forged
 
 Variable: `hctx-progress`
@@ -98,10 +89,6 @@ Recommended increments:
 Implementation note:
 
 The exact split can be adjusted, but the bar should track substantive framework-building steps rather than every small scene transition.
-
-Suggested icon:
-
-- `✧`
 
 ### 3. Decision Checks Mastered
 
@@ -137,10 +124,6 @@ That means:
 
 This is much better than a raw `0..11` counter because it matches the framework and feels more meaningful.
 
-Suggested icon:
-
-- `🧭`
-
 ### 4. Concepts Understood
 
 Variable: `knwl-progress`
@@ -175,18 +158,13 @@ Recommended qknwl-progress qdisplay beats:
 
 (10..10) <progress value="10" max="10">10</progress>
 
-
-Suggested icon:
-
-- `📘`
-
 ## Recommendation for Knowledge Progress
 
 `knwl-progress += 1`
 
 So the planning assumption should be:
 
-- `knwl-progress` needs a qdisplay file and does not increase repeatedly on revisiting filter questions, because it is not used in the filter questions, only in their introduction
+- `knwl-progress` needs a qdisplay file and does not increase repeatedly on revisiting filter questions, because it is not used in the filter questions. It is only used before and in the filter questions introduction
 
 ### Additional variables for knowledge unlocks
 
@@ -195,8 +173,8 @@ We should introduce more variables for knowledge timing.
 The four track variables are not enough on their own, because the game also needs to know:
 
 - whether knowledge has already been unlocked
-- which knowledge was unlocked most recently
-- which small concept chips are eligible to appear in the left sidebar
+- which knowledge was unlocked most recently so the left sidebar can echo it
+- which right-sidebar codex entry should become available after the left sidebar records discovery
 
 Recommended additional knowledge-state variables:
 
@@ -206,6 +184,7 @@ Recommended additional knowledge-state variables:
 - `knwl-decision-makers`
 - `knwl-resource-base`
 - `knwl-holistic-context`
+- `knwl-dust-storms`
 - `knwl-filters`
 - `knwl-cause-effect`
 - `knwl-weak-link`
@@ -222,11 +201,11 @@ Recommended use:
 
 This allows the left sidebar to cleanly show lines such as:
 
-- `New knwl: Weak Link`
-- `New knwl: Cause and Effect`
-- `New knwl: Whole Under Management`
+- `New knowledge: Weak Link`
+- `New knowledge: Cause and Effect`
+- `New knowledge: Whole Under Management`
 
-And it also allows the right sidebar to unlock full codex entries at the correct time.
+And it also allows the right sidebar to unlock the matching codex entry only after the left sidebar has registered that knowledge.
 
 ## Achievement System
 
@@ -239,17 +218,13 @@ Add simple qualities for achievement tracking:
 - `achievement-count += 1`
 - `achievement-first-landing`
 - `achievement-tea-companion`
-- `achievement-context-keeper`
+- `achievement-holtext-created`
 - `achievement-filter-navigator`
-- `achievement-long-view`
-- `achievement-systems-thinker`
 - `achievement-weak-link-spotter`
 
 Optional:
 
-- `achievement-no-loose-ends`
-- `achievement-framework-builder`
-- `achievement-full-context`
+- `achievement-framework-finished`
 
 ### Badge philosophy
 
@@ -295,7 +270,7 @@ Sidebar line:
 
 - `New achievement: Tea Companion`
 
-#### Context Keeper
+#### Holtext created
 
 Unlock when:
 
@@ -311,7 +286,7 @@ Suggested icon:
 
 Sidebar line:
 
-- `New achievement: Context Keeper`
+- `New achievement: Holistic context created`
 
 #### Filter Navigator
 
@@ -331,36 +306,16 @@ Sidebar line:
 
 - `New achievement: Filter Navigator`
 
-#### Long View
-
-Unlock when:
-
-- the outro is reached
-
-Narrative role:
-
-- closes the arc by emphasizing long-term stewardship
-
-Suggested icon:
-
-- `✦`
-
-Sidebar line:
-
-- `New achievement: Long View`
-
 ### Knowledge achievements
 
 These already fit well and should remain:
 
-- **Systems Thinker** — unlock after both complexity and whole-under-management knowledge are unlocked
 - **Weak Link Spotter** — unlock after the weak-link explanation is unlocked
 
 Good additions:
 
-- **Context Crafter** — unlock when holistic context knowledge is introduced
-- **Source and Use** — unlock when energy/money explanation is unlocked
-- **Grounded Intuition** — unlock when the gut-feel explanation is unlocked after the previous filter arc
+- **Intuition** — unlock when the gut-feel explanation is unlocked after the previous filter arc
+- Maybe some more about the filters?
 
 ## Sidebar Layout Plan
 
@@ -374,9 +329,8 @@ Recommended contents:
 
 - progress tracks
 - latest achievement
-- compact Holistic Context summary
+- Holistic Context (after it is created)
 - current decision or current filter status
-- maybe 2–3 tiny unlocked concept chips
 - latest unlocked knowledge line
 
 Example latest knowledge lines:
@@ -394,66 +348,52 @@ Recommended contents:
 - full knowledge codex
 - unlocked explanations
 - deeper concept descriptions
-- optional grouped sections such as `Foundations`, `Context`, and `Filters`
+- optional grouped sections such as `Foundations`, `Holistic Context`, and `Filters`
 
 ### Recommended order
 
 1. dashboard title
 2. four track cards
 3. latest achievement line
-4. latest unlocked insight line
+4. latest unlocked knowledge line
 5. earned achievement badges
-6. compact Holistic Context summary
+6. Holistic Context
 7. current decision or current filter status
 8. optional concept chips
 9. final summary card once the framework is complete
 
 ### Dashboard title
 
-- `Your Framework Journey`
+- `Progress`
 
 ### Track cards
 
 Each card should contain:
 
-- icon
 - track title
 - qdisplay-rendered progress bar
 - short status text
 - completed state styling when full
 
-### Track titles
-
-- `⛵ Voyage Through Complexity`
-- `✧ Holistic Context Forged`
-- `🧭 Decision Checks Mastered`
-- `📘 Concepts Understood`
-
 ### Achievement line
 
 Show a short line directly under the tracks:
 
-- `✦ New achievement: Context Keeper`
+- `New achievement: Holistic Context created`
 
-This line does not need to be truly temporary at first.
-
-Version 1 can simply show the most recently unlocked achievement until another one replaces it.
-
-That gives the effect without introducing complex expiry logic.
-
-### Latest insight line
+### Latest knowledge line
 
 Show a short line for the most recently unlocked knowledge beat:
 
-- `📘 New insight: Weak Link`
-- `📘 New insight: Cause and Effect`
-- `📘 New insight: Whole Under Management`
+- `New knowledge: Weak Link`
+- `New knowledge: Cause and Effect`
+- `New knowledge: Whole Under Management`
 
-Version 1 should keep this simple:
+Keep this simple:
 
 - one line only
-- replaced whenever a newer insight unlocks
-- driven by `insight-last` and optionally `insight-last-icon`
+- replaced whenever newer knowledge unlocks
+- driven by `knwl-last`
 
 ### Earned badges
 
@@ -463,27 +403,17 @@ Badges should be short and elegant:
 
 - `⚓ First Landing`
 - `☕ Tea Companion`
-- `✧ Context Keeper`
+- `✧ Holistic Context created`
 - `🧭 Filter Navigator`
-- `✦ Long View`
 
-### Concept chips
+### Relationship to right sidebar
 
-Add 2–3 very small chips for recently relevant unlocked concepts.
+The left sidebar and right sidebar should not duplicate each other.
 
-Examples:
-
-- `Whole Under Management`
-- `Weak Link`
-- `Cause and Effect`
-
-These should be:
-
-- short
-- optional
-- secondary to the main track cards
-
-They should hint at unlocked knowledge without replacing the right-sidebar codex.
+- the left sidebar is the place that tracks and signals the unlock
+- the right sidebar holds the full unlocked explanation
+- both should use the same concept name so the connection is immediate
+- the right sidebar should never preview locked knowledge before the left sidebar unlocks it
 
 ## Completed State and Animation
 
@@ -525,15 +455,15 @@ Replace utilitarian labels where possible.
 ### With
 
 - `Voyage Through Complexity`
-- `Holistic Context Forged`
-- `Decision Checks Mastered`
-- `Concepts Understood`
+- `Holistic Context Created`
+- `Decision Checks finished`
+- `Known Concepts`
 
 These should appear in the visible dashboard even if the underlying scene structure stays the same.
 
 ## Final Summary Card
 
-When the player reaches the end, show a summary card in the sidebar or outro section that answers:
+When the player reaches the end, show a summary card in the outro section that answers:
 
 - who is the whole under management
 - what quality of life they defined
@@ -560,12 +490,11 @@ Recommended initial values:
 - `fltr-progress = 0`
 - `knwl-progress = 0`
 - `achievement-count = 0`
-- `insight-last = 0`
-- `insight-last-icon = 0`
+- `knwl-last = 0`
 
 Initialize achievement flags to `0` only if needed for clarity.
 
-Also initialize the one-time insight unlock flags only if explicit initialization makes the implementation easier to read.
+Also initialize the one-time knowledge unlock flags only if explicit initialization makes the implementation easier to read.
 
 ### 2. Narrative milestone scenes
 
@@ -713,6 +642,6 @@ Each track should represent a different kind of accomplishment:
 - narrative travel
 - framework construction
 - decision mastery
-- learning and insight
+- learning and knowledge
 
 That difference is what will make the experience feel exciting instead of merely more crowded.
