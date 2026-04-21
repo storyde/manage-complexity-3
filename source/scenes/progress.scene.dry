@@ -14,11 +14,7 @@ title: Progress
 
 [? if decision-makers != 0 : <h1>Holistic Context:</h1> ?]
 
-[? if progress > 25 and player = "one" : I want [+ qol-economic +] in a balanced life with [+ qol-balance +]. My relationships will be grounded in [+ qol-relationships +]. I thrive on [+ qol-challenge +] and want to be free to [+ qol-growth +]. I find purpose in [+ qol-purpose +]. I seek to be [+ qol-aspiration +] and want to contribute to [+ qol-accomplish +]. <br>[+ complement +] <br><br>I will act in ways that are [+ frb-people +]. <br><br>All to be ensured, for many generations to come, on a foundation of [+ frb-environment +]. ?]
-
-[? if progress > 25 and player = "group" : We want [+ qol-economic +] in balanced lives with [+ qol-balance +]. Our relationships will be grounded in [+ qol-relationships +]. We thrive on [+ qol-challenge +] and want to be free to [+ qol-growth +]. We find purpose in [+ qol-purpose +]. We seek to be [+ qol-aspiration +] and want to contribute to [+ qol-accomplish +]. <br>[+ complement +] <br><br>We will act in ways that are [+ frb-people +]. <br><br>All to be ensured, for many generations to come, on a foundation of [+ frb-environment +]. ?]
-
-[? if progress > 25 and player = "org" : We want [+ qol-economic +] in balanced lives with [+ qol-balance +]. Our relationships will be grounded in [+ qol-relationships +]. We thrive on [+ qol-challenge +] and want to be free to [+ qol-growth +]. We find purpose in [+ qol-purpose +]. We seek to be [+ qol-aspiration +] and want to contribute to [+ qol-accomplish +]. <br>[+ complement +] <br><br>We will act in ways that are [+ frb-people +]. <br><br>All to be ensured, for many generations to come, on a foundation of [+ frb-environment +]. ?]
+[? if progress > 25 : <div style="white-space: pre-wrap;">[+ holtext +]</div> ?]
 
 [? if progress < 26 and decision-makers != 0 : <h2>Whole Under Management</h2> ?]
 
