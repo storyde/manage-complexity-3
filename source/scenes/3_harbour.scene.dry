@@ -109,6 +109,7 @@ A few steps from a window, a drone hovers, dropping crumbs to a swarm of pigeons
 @drone_pickup 
 title: Help the drone
 max-visits: 1
+on-arrival: helped-drone = 1
 tags: th_arrival
 
 You crouch and pick it up.
@@ -119,8 +120,9 @@ A plastic string is tangled up in one of the rotors.
 
 @drone_string 
 title: Remove the string
+view-if: helped-drone = 1
 max-visits: 1
-on-departure: helped-drone = 1
+on-arrival: helped-drone = 2
 tags: th_arrival
 
 You remove the string, press the rotor back into place, and trigger the drone to reboot.
