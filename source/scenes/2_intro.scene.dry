@@ -1,17 +1,18 @@
 ﻿title: Start 
 order: 1
 on-arrival: progress = 2
+new-page: true
 tags: root
 
-= In the not-so-distant future, ...  
+= In the not-so-distant future, 
 
-... in a country that once called itself stable, the strain of the polycrisis takes its toll.
+in a country that once called itself stable, the strain of the polycrisis takes its toll.
 
 And the robots?
 
-They’re still around. Just... doing their own thing now.
+They're still around, doing their own thing now.
 
-You arrive in the middle of it all, following an invitation to grab some tea at the old harbour and have a chat about solving the polycrisis.
+You arrive at the old harbour, following an invitation to grab some tea and discuss a way out of the polycrisis.
 
 You are here:  
 
