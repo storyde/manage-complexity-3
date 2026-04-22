@@ -35,20 +35,20 @@ All to be ensured, for many generations to come, on a foundation of ${frbEnviron
 !}
 new-page: true
 tags: root
-achievement: testAchievement2
+achievement: test_achievement2
 
 = Title
 
 Test: Achievement flag for this scene:
 
-achievement_testAchievement = [+ achievement_testAchievement +]
-[? if achievement_testAchievement = 1 : Achievement ist gesetzt ✅ ?]
-[? if achievement_testAchievement = 0 : Achievement ist NICHT gesetzt ❌ ?]
+achievement_test_achievement = [+ achievement_test_achievement +]
+[? if achievement_test_achievement = 1 : Achievement ist gesetzt ✅ ?]
+[? if achievement_test_achievement = 0 : Achievement ist NICHT gesetzt ❌ ?]
 
 
-achievement_testAchievement2 = [+ achievement_testAchievement2 +]
-[? if achievement_testAchievement2 = 1 : Achievement ist gesetzt ✅ ?]
-[? if achievement_testAchievement2 = 0 : Achievement ist NICHT gesetzt ❌ ?]
+achievement_test_achievement2 = [+ achievement_test_achievement2 +]
+[? if achievement_test_achievement2 = 1 : Achievement ist gesetzt ✅ ?]
+[? if achievement_test_achievement2 = 0 : Achievement ist NICHT gesetzt ❌ ?]
 
 Paper: {!<h1>Holistic Context:</h1><br><div contenteditable="true" data-quality="holtext" style="white-space: pre-wrap;" oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.innerText);">!}[+ holtext +]{!</div>!}
 

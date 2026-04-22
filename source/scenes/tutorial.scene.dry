@@ -25,6 +25,9 @@ tags: root
         <button class="article-btn article-btn-primary" type="button" onclick="dendryUI.dendryEngine.goToScene('2_intro');" aria-label="Start playing the story">
           Start playing
         </button>
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('reset_achievements');" aria-label="Reset your achievements">
+          Reset achievements
+        </button>
       </div>
     </div>
   </div>
@@ -48,7 +51,7 @@ tags: root
       <div class="article-grid article-grid--compact">
         <div class="article-card" id="tutorial-progress" aria-labelledby="tutorial-progress-title">
           <h3 id="tutorial-progress-title">Progress (left)</h3>
-          <p>Shows your progress and your choices.</p>
+          <p>Shows your progress, your achievements and some of your choices.</p>
         </div>
 
         <div class="article-card" id="tutorial-info" aria-labelledby="tutorial-info-title">
@@ -84,3 +87,4 @@ tags: root
 !}
 
 - @backSpecialScene: Back
+

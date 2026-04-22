@@ -37,6 +37,9 @@ tags: root
         <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('zz_test');" aria-label="View test">
           Test
         </button>
+        <button class="article-btn article-btn-ghost" type="button" onclick="dendryUI.dendryEngine.goToScene('reset_achievements');" aria-label="Reset your achievements">
+          Reset achievements
+        </button>
       </div>
     </div>
 
