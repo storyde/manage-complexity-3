@@ -209,22 +209,48 @@ And it also allows the right sidebar to unlock the matching codex entry only aft
 
 ## Achievement System
 
+### How Dendry Achievements Work (Implementation Detail)
+
+The scene property:
+
+`achievement: some_name`
+
+is handled automatically by the runtime engine:
+
+- It records the achievement in `state.achievements[some_name] = 1`
+- It also exposes it as a quality `achievement_some_name = 1` so it can be used in `view-if`, `choose-if`, and `[? if ... ?]` conditions.
+- Achievements persist in the browser via localStorage and are rehydrated on startup, which re-populates the `achievement_*` qualities.
+
+Important UI timing note:
+the engine applies `scene.achievement` after the current scene content is rendered. If you want to display “Achievement unlocked” reliably, show it on the next scene (or in a sidebar scene like `progress.scene.dry`) rather than expecting it to appear in the same scene on first render.
+
 ### Core achievement state
 
-Add simple qualities for achievement tracking:
+Use Dendry’s built-in achievement mechanism as the source of truth:
 
-- `achievement-last`
-- `achievement-icon = Q.achievement-icon + icon`
-- `achievement-count += 1`
-- `achievement-first-landing`
-- `achievement-tea-companion`
-- `achievement-holtext-created`
-- `achievement-filter-navigator`
-- `achievement-weak-link-spotter`
+- Award via a scene property: `achievement: <achievement_name>`
+- The engine automatically sets and persists the quality `achievement_<achievement_name> = 1`
+- In text/conditions, always check `achievement_<achievement_name>` (not separate custom flags)
+
+Recommendation: keep `achievement_name` values consistent and easy to query (prefer `lower_snake_case`, e.g. `first_landing`).
+
+Add a small set of helper qualities for UI/recency display (maintained by our own guarded logic so they don’t increment on revisits):
+
+- `achvm_last` (text): last unlocked achievement label
+- `achvm_icon` (text): icon for the last unlocked achievement
+- `achvm_count` (number): total unlocked achievements (one-time increments)
+
+Planned achievement names (become qualities like `achievement_first_landing`):
+
+- `first_landing`
+- `tea_companion`
+- `holtext_created`
+- `filter_navigator`
+- `weak_link_spotter`
 
 Optional:
 
-- `achievement-framework-finished`
+- `framework_finished`
 
 ### Badge philosophy
 
