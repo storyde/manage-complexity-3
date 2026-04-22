@@ -10,21 +10,21 @@ Introduce separate track variables and qdisplay files for the visible progressio
 
 ### Add
 
-- `jrny-progress` for **Journy**
-- `hctx-progress` for **Holistic Context**
-- `fltr-progress` for **Decision Checks**
-- `knwl-progress` for **Known Concepts**
-- `knwl-progress-bar` for progress bar
+- `jrny_progress` for **Journy**
+- `hctx_progress` for **Holistic Context**
+- `fltr_progress` for **Decision Checks**
+- `knwl_progress` for **Known Concepts**
+- `knwl_progress_bar` for progress bar
 
 ## New Qdisplay Files
 
 Create one qdisplay per track:
 
-- `source/qdisplays/qjrny-progress.qdisplay.dry`
-- `source/qdisplays/qhctx-progress.qdisplay.dry`
-- `source/qdisplays/qfltr-progress.qdisplay.dry`
-- `source/qdisplays/qknwl-progress.qdisplay.dry`
-- `source/qdisplays/qknwl-progress-bar.qdisplay.dry`
+- `source/qdisplays/qjrny_progress.qdisplay.dry`
+- `source/qdisplays/qhctx_progress.qdisplay.dry`
+- `source/qdisplays/qfltr_progress.qdisplay.dry`
+- `source/qdisplays/qknwl_progress.qdisplay.dry`
+- `source/qdisplays/qknwl_progress_bar.qdisplay.dry`
 
 The current `qprogress.qdisplay.dry` can remain temporarily during migration and then be removed after the new sidebar layout is stable.
 
@@ -32,7 +32,7 @@ The current `qprogress.qdisplay.dry` can remain temporarily during migration and
 
 ### 1. Voyage Through Complexity
 
-Variable: `jrny-progress`
+Variable: `jrny_progress`
 
 Purpose:
 
@@ -60,7 +60,7 @@ Why a short scale works:
 
 ### 2. Holistic Context Forged
 
-Variable: `hctx-progress`
+Variable: `hctx_progress`
 
 Purpose:
 
@@ -92,7 +92,7 @@ The exact split can be adjusted, but the bar should track substantive framework-
 
 ### 3. Decision Checks Mastered
 
-Variable: `fltr-progress`
+Variable: `fltr_progress`
 
 Purpose:
 
@@ -126,7 +126,7 @@ This is much better than a raw `0..11` counter because it matches the framework 
 
 ### 4. Concepts Understood
 
-Variable: `knwl-progress`
+Variable: `knwl_progress`
 
 Purpose:
 
@@ -150,7 +150,7 @@ Recommended scale:
 
 - `0..15`
 
-Recommended qknwl-progress qdisplay beats:
+Recommended qknwl_progress qdisplay beats:
 
 (0..0) <progress value="0" max="10">0</progress>
 (1..1) <progress value="1" max="10">1</progress>
@@ -160,11 +160,11 @@ Recommended qknwl-progress qdisplay beats:
 
 ## Recommendation for Knowledge Progress
 
-`knwl-progress += 1`
+`knwl_progress += 1`
 
 So the planning assumption should be:
 
-- `knwl-progress` needs a qdisplay file and does not increase repeatedly on revisiting filter questions, because it is not used in the filter questions. It is only used before and in the filter questions introduction
+- `knwl_progress` needs a qdisplay file and does not increase repeatedly on revisiting filter questions, because it is not used in the filter questions. It is only used before and in the filter questions introduction
 
 ### Additional variables for knowledge unlocks
 
@@ -178,26 +178,26 @@ The four track variables are not enough on their own, because the game also need
 
 Recommended additional knowledge-state variables:
 
-- `knwl-last`
-- `knwl-complexity`
-- `knwl-whole`
-- `knwl-decision-makers`
-- `knwl-resource-base`
-- `knwl-holistic-context`
-- `knwl-dust-storms`
-- `knwl-filters`
-- `knwl-cause-effect`
-- `knwl-weak-link`
-- `knwl-marginal-reaction`
-- `knwl-gross-profit`
-- `knwl-source-use`
-- `knwl-sustainability`
-- `knwl-gut-feel`
+- `knwl_last`
+- `knwl_complexity`
+- `knwl_whole`
+- `knwl_decision_makers`
+- `knwl_resource_base`
+- `knwl_holistic_context`
+- `knwl_dust_storms`
+- `knwl_filters`
+- `knwl_cause_effect`
+- `knwl_weak_link`
+- `knwl_marginal_reaction`
+- `knwl_gross_profit`
+- `knwl_source_use`
+- `knwl_sustainability`
+- `knwl_gut_feel`
 
 Recommended use:
 
-- each `knwl-*` variable acts as a one-time unlock flag
-- `knwl-last` stores the label for the latest unlocked knowledge
+- each `knwl_*` variable acts as a one-time unlock flag
+- `knwl_last` stores the label for the latest unlocked knowledge
 
 This allows the left sidebar to cleanly show lines such as:
 
@@ -419,7 +419,7 @@ Keep this simple:
 
 - one line only
 - replaced whenever newer knowledge unlocks
-- driven by `knwl-last`
+- driven by `knwl_last`
 
 ### Earned badges
 
@@ -511,12 +511,12 @@ Initialize all new visible-progress variables and achievement variables.
 
 Recommended initial values:
 
-- `jrny-progress = 0`
-- `hctx-progress = 0`
-- `fltr-progress = 0`
-- `knwl-progress = 0`
-- `achievement-count = 0`
-- `knwl-last = 0`
+- `jrny_progress = 0`
+- `hctx_progress = 0`
+- `fltr_progress = 0`
+- `knwl_progress = 0`
+- `achievement_count = 0`
+- `knwl_last = 0`
 
 Initialize achievement flags to `0` only if needed for clarity.
 

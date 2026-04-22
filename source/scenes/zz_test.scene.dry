@@ -4,32 +4,32 @@ order: 5
 is-special: true
 on-arrival: {!
 if (!Q.holtext) {
-    const qolEconomic = Q["qol-economic"] || "";
-    const qolBalance = Q["qol-balance"] || "";
-    const qolRelationships = Q["qol-relationships"] || "";
-    const qolChallenge = Q["qol-challenge"] || "";
-    const qolGrowth = Q["qol-growth"] || "";
-    const qolPurpose = Q["qol-purpose"] || "";
-    const qolAspiration = Q["qol-aspiration"] || "";
-    const qolAccomplish = Q["qol-accomplish"] || "";
+    const qol_economic = Q["qol-economic"] || "";
+    const qol_balance = Q["qol-balance"] || "";
+    const qol_relationships = Q["qol-relationships"] || "";
+    const qol_challenge = Q["qol-challenge"] || "";
+    const qol_growth = Q["qol-growth"] || "";
+    const qol_purpose = Q["qol-purpose"] || "";
+    const qol_aspiration = Q["qol-aspiration"] || "";
+    const qol_accomplish = Q["qol-accomplish"] || "";
     const complement = Q.complement || "";
-    const frbPeople = Q["frb-people"] || "";
-    const frbEnvironment = Q["frb-environment"] || "";
+    const frb_people = Q["frb-people"] || "";
+    const frb_environment = Q["frb-environment"] || "";
 
     if (Q.player === "one") {
-        Q.holtext = `I want ${qolEconomic} in a balanced life with ${qolBalance}. My relationships will be grounded in ${qolRelationships}. I thrive on ${qolChallenge} and want to be free to ${qolGrowth}. I find purpose in ${qolPurpose}. I seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+        Q.holtext = `I want ${qol_economic} in a balanced life with ${qol_balance}. My relationships will be grounded in ${qol_relationships}. I thrive on ${qol_challenge} and want to be free to ${qol_growth}. I find purpose in ${qol_purpose}. I seek to be ${qol_aspiration} and want to contribute to ${qol_accomplish}.
 ${complement}
 
-I will act in ways that are ${frbPeople}.
+I will act in ways that are ${frb_people}.
 
-All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+All to be ensured, for many generations to come, on a foundation of ${frb_environment}.`;
     } else if (Q.player === "group" || Q.player === "org") {
-        Q.holtext = `We want ${qolEconomic} in balanced lives with ${qolBalance}. Our relationships will be grounded in ${qolRelationships}. We thrive on ${qolChallenge} and want to be free to ${qolGrowth}. We find purpose in ${qolPurpose}. We seek to be ${qolAspiration} and want to contribute to ${qolAccomplish}.
+        Q.holtext = `We want ${qol_economic} in balanced lives with ${qol_balance}. Our relationships will be grounded in ${qol_relationships}. We thrive on ${qol_challenge} and want to be free to ${qol_growth}. We find purpose in ${qol_purpose}. We seek to be ${qol_aspiration} and want to contribute to ${qol_accomplish}.
 ${complement}
 
-We will act in ways that are ${frbPeople}.
+We will act in ways that are ${frb_people}.
 
-All to be ensured, for many generations to come, on a foundation of ${frbEnvironment}.`;
+All to be ensured, for many generations to come, on a foundation of ${frb_environment}.`;
     }
 }
 !}
