@@ -46,9 +46,9 @@ achievement_test_achievement = [+ achievement_test_achievement +]
 [? if achievement_test_achievement = 0 : Achievement ist NICHT gesetzt ❌ ?]
 
 
-achievement_test_achievement2 = [+ achievement_test_achievement2 +]
-[? if achievement_test_achievement2 = 1 : Achievement ist gesetzt ✅ ?]
-[? if achievement_test_achievement2 = 0 : Achievement ist NICHT gesetzt ❌ ?]
+game_achievement_test_achievement2 = [+ game_achievement_test_achievement2 +]
+[? if game_achievement_test_achievement2: Achievement ist gesetzt ✅ ?]
+[? if not game_achievement_test_achievement2: Achievement ist NICHT gesetzt ❌ ?]
 
 Paper: {!<h1>Holistic Context:</h1><br><div contenteditable="true" data-quality="holtext" style="white-space: pre-wrap;" oninput="window.dendryUI && window.dendryUI.dendryEngine && (window.dendryUI.dendryEngine.state.qualities[this.dataset.quality] = this.innerText);">!}[+ holtext +]{!</div>!}
 

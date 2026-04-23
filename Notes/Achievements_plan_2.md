@@ -1,673 +1,602 @@
-# Achievements and Multi-Track Progress Plan
+# Achievements and Progress Plan, Ready for Implementation
 
 ## Goal
 
-Replace the single visible progress bar in the scene progress.scene with a small progress dashboard that feels more like a game system while still fitting the reflective tone of the project.
+Replace the current single `progress` bar in `source/scenes/progress.scene.dry` with a small, motivating dashboard that:
 
-Introduce separate track variables and qdisplay files for the visible progression system.
+- makes progress feel earned
+- reinforces the structure of Holistic Management
+- adds a few meaningful achievements
+- stays simple enough to implement and maintain quickly
 
-## Recommended Track Model
+This plan is intentionally smaller than the earlier draft. The focus is on features that give clear player value, not on building a large meta-system.
 
-### Add
+## Design Decision
 
-- `jrny_progress` for **Journy**
-- `hctx_progress` for **Holistic Context**
-- `fltr_progress` for **Decision Checks**
-- `knwl_progress` for **Known Concepts**
-- `knwl_progress_bar` for progress bar
+### Keep in v1
 
-## New Qdisplay Files
+- 3 visible progress tracks
+- 4 to 5 meaningful achievements
+- 1 "latest knowledge" line
+- compact earned-badge display in the left sidebar
+- a nice animation
 
-Create one qdisplay per track:
+### Cut from v1
 
-- `source/qdisplays/qjrny_progress.qdisplay.dry`
-- `source/qdisplays/qhctx_progress.qdisplay.dry`
-- `source/qdisplays/qfltr_progress.qdisplay.dry`
-- `source/qdisplays/qknwl_progress.qdisplay.dry`
-- `source/qdisplays/qknwl_progress_bar.qdisplay.dry`
+- no separate knowledge progress bar
+- no large codex unlock system
+- no achievement icons as required data
+- no final summary card requirement
 
-The current `qprogress.qdisplay.dry` can remain temporarily during migration and then be removed after the new sidebar layout is stable.
+These can be added later if the simple version works well. They are not needed to get the motivational benefit.
 
-## Track Definitions
+## Why This Simpler Shape Is Better
 
-### 1. Voyage Through Complexity
+The game already has strong educational content. What is missing is a clearer feeling of movement and payoff.
 
-Variable: `jrny_progress`
+A good v1 should therefore:
+
+- show where the player is in the journey
+- show that the Holistic Context is being built
+- show mastery of the seven checks
+- reward a few memorable milestones
+
+That is enough to improve motivation without making the sidebar noisy or the implementation fragile.
+
+## Dendry Constraints To Follow
+
+### Qualities in this project
+
+This project already uses qualities directly in scenes through `on-arrival`, `view-if`, `choose-if`, and inline conditions. For this feature, we should continue that pattern.
+
+Recommendation:
+
+- Add `.quality.dry` files only if necessary
+- Use qdisplay files for the progress bars
+- keep naming consistent with the current project style
+
+Current project style uses snake_case quality names such as:
+
+- `qol_economic`
+- `rb_physical`
+- `fltr_cause`
+
+Therefore new helper qualities should also use underscore names. 
+Built-in achievement qualities will Dendry expose as `achievement_<achievement_name>`.
+
+### How achievements should be used
+
+Dendry supports:
+
+`achievement: some_name`
+
+When a scene has that property, Dendry exposes:
+
+- `achievement_some_name = 1` (persistent)
+
+Implementation rules for this plan:
+
+- use `achievement_some_name` for checks and sidebar badge display
+- treat `achievement_*` as the source of truth for badges
+- do not create duplicate custom achievement flags for the same badge
+- use helper qualities only for UI support such as recency and counts
+
+Important practical note:
+
+- the achievement is safest to show in the sidebar or on the next scene
+- do not depend on same-scene content updating immediately after `achievement: ...` as achievement-qualities are not updated on-arrival.
+
+## Chosen v1 Model
+
+## Visible Sidebar Structure
+
+Top of left sidebar:
+
+1. `Progress` heading
+2. Journey track
+3. Holistic Context track
+4. Decision Checks track
+5. latest achievement line, if any
+6. latest knowledge line, if any
+7. earned badges
+
+Below that, keep the existing lower sections:
+
+- Holistic Context content
+- current filter answers
+
+This preserves the useful current sidebar while improving motivation at the top.
+
+## Track 1: Journey
+
+Quality:
+
+- `jrny-progress`
+
+Scale:
+
+- `0..4`
 
 Purpose:
 
-- track narrative travel and chapter completion
-- replace the current single story bar with something more thematic
-
-Recommended scale:
-
-- `0..5`
+- show narrative movement through the experience
 
 Milestones:
 
 - `0` Not started
-- `1` First Landing
-- `2` Tea Companion
-- `3` Context Keeper
-- `4` Filter Navigator
-- `5` Long View
+- `1` Harbour reached
+- `2` Teahouse entered
+- `3` Holistic Context completed
+- `4` Framework completed
 
-Why a short scale works:
+Why this scale:
 
-- it feels like a chapter map, not an admin counter
-- it aligns naturally with the strongest milestone achievements
-- it avoids mirroring the old `progress` system too literally
+- short and readable
+- tied to memorable moments
+- does not duplicate every scene
 
-### 2. Holistic Context Forged
+## Track 2: Holistic Context
 
-Variable: `hctx_progress`
+Quality:
+
+- `hctx-progress`
+
+Scale:
+
+- `0..9`
 
 Purpose:
 
-- reward the player for building the actual framework
-- make the left sidebar reflect real construction, not just story order
+- reward the actual construction of the framework
 
-Recommended scale:
-
-- `0..12`
-
-Recommended increments:
+Milestones:
 
 - `1` decision-makers defined
 - `2` physical resources defined
 - `3` human resources defined
 - `4` money defined
-- `5` statement of purpose complete for organisations, or no award for non-org play
-- `6` quality of life economy 
-- `7` quality of life relationships 
-- `8` quality of life challenge 
-- `9` quality of life growth 
-- `10` quality of life purpose 
-- `11` quality of life contribution or accomplishment 
-- `12` future resource base 
+- `5` statement of purpose done, or auto-credit for non-org path
+- `6` quality of life completed
+- `7` future resource base, people
+- `8` future resource base, environment
+- `9` holistic context written
 
-Implementation note:
+Why this scale:
 
-The exact split can be adjusted, but the bar should track substantive framework-building steps rather than every small scene transition.
+- each step is substantive
+- enough movement to feel satisfying
+- still much simpler than mirroring every current scene
 
-### 3. Decision Checks Mastered
+Note on Holistic Management accuracy:
 
-Variable: `fltr_progress`
+- the track reflects the real structure of the framework:
+  - define the whole
+  - create the holistic context
+  - describe the future resource base
 
-Purpose:
+## Track 3: Decision Checks
 
-- show mastery of the seven filter questions in a clean, meaningful way
+Quality:
 
-Recommended scale:
+- `fltr-progress`
+
+Scale:
 
 - `0..7`
 
-Recommended increments:
+Purpose:
 
-- `1` Cause and Effect
-- `2` Weak Links 
-- `3` Marginal Reaction
-- `4` Gross Profit
-- `5` Source and Use 
-- `6` Sustainability 
-- `7` Gut Feel 
+- make the seven checks feel like mastery, not admin
 
-Important design choice:
+Milestones:
 
-This track should count conceptual filter completion, not every individual sub-answer.
+- `1` Cause and Effect complete
+- `2` Weak Link complete
+- `3` Marginal Reaction complete
+- `4` Gross Profit complete
+- `5` Source and Use complete
+- `6` Sustainability complete
+- `7` Gut Feel complete
 
-That means:
+Important rule:
 
-- Weak Link advances only when all required weak-link parts are done
-- Source and Use advances only when both source and use are done
-- Sustainability advances only when both behaviour and environment are done
+This track must count conceptual completion, not raw sub-questions.
 
-This is much better than a raw `0..11` counter because it matches the framework and feels more meaningful.
+`Skipped` answers count as valid completion in v1.
+Progress should advance once each required check has any recorded answer. 
 
-### 4. Concepts Understood
+## Lightweight Knowledge Signal
 
-Variable: `knwl_progress`
+Do not build a fourth visible knowledge track in v1.
+
+Instead, add:
+
+- `knwl-last`
 
 Purpose:
 
-- reward learning moments
-- make the educational side of the story feel collectible and visible
+- show the most recent concept the player learned
+- add a feeling of discovery without another full bar
 
-Recommended knowledge beats:
+Recommended one-time concept unlocks:
 
-- `1` Complexity introduced
-- `2` Whole Under Management introduced
-- `3` Decision makers introduced
-- `4` Quality of life introduced
-- `5` Resource base introduced
-- `6` Holistic context introduced
-- `7` Filter questions introduced
-- `8` Dust storms explained (scene will be created in the future)
-- `9` Plant oxidation explained (scene will be created in the future)
-- `10` Additional things explained
+- `Complexity`
+- `Whole Under Management`
+- `Holistic Context`
+- `Seven Checks`
+- `Weak Link`
 
-Recommended scale:
+Recommended helper qualities:
 
-- `0..15`
+- `knwl-last`
+- `knwl-complexity`
+- `knwl-whole`
+- `knwl-holtext`
+- `knwl-filters`
+- `knwl-weak-link`
 
-Recommended qknwl_progress qdisplay beats:
+This is enough for v1. Do not build a larger concept flag set unless later testing shows a real need.
 
-(0..0) <progress value="0" max="10">0</progress>
-(1..1) <progress value="1" max="10">1</progress>
-(2..2) <progress value="2" max="10">2</progress>
+## Achievement Set
 
-(10..10) <progress value="10" max="10">10</progress>
+Keep the achievement set memorable.
 
-## Recommendation for Knowledge Progress
-
-`knwl_progress += 1`
-
-So the planning assumption should be:
-
-- `knwl_progress` needs a qdisplay file and does not increase repeatedly on revisiting filter questions, because it is not used in the filter questions. It is only used before and in the filter questions introduction
-
-### Additional variables for knowledge unlocks
-
-We should introduce more variables for knowledge timing.
-
-The four track variables are not enough on their own, because the game also needs to know:
-
-- whether knowledge has already been unlocked
-- which knowledge was unlocked most recently so the left sidebar can echo it
-- which right-sidebar codex entry should become available after the left sidebar records discovery
-
-Recommended additional knowledge-state variables:
-
-- `knwl_last`
-- `knwl_complexity`
-- `knwl_whole`
-- `knwl_decision_makers`
-- `knwl_resource_base`
-- `knwl_holistic_context`
-- `knwl_dust_storms`
-- `knwl_filters`
-- `knwl_cause_effect`
-- `knwl_weak_link`
-- `knwl_marginal_reaction`
-- `knwl_gross_profit`
-- `knwl_source_use`
-- `knwl_sustainability`
-- `knwl_gut_feel`
-
-Recommended use:
-
-- each `knwl_*` variable acts as a one-time unlock flag
-- `knwl_last` stores the label for the latest unlocked knowledge
-
-This allows the left sidebar to cleanly show lines such as:
-
-- `New knowledge: Weak Link`
-- `New knowledge: Cause and Effect`
-- `New knowledge: Whole Under Management`
-
-And it also allows the right sidebar to unlock the matching codex entry only after the left sidebar has registered that knowledge.
-
-## Achievement System
-
-### How Dendry Achievements Work (Implementation Detail)
-
-The scene property:
-
-`achievement: some_name`
-
-is handled automatically by the runtime engine:
-
-- It records the achievement in `state.achievements[some_name] = 1`
-- It also exposes it as a quality `achievement_some_name = 1` so it can be used in `view-if`, `choose-if`, and `[? if ... ?]` conditions.
-- Achievements persist in the browser via localStorage and are rehydrated on startup, which re-populates the `achievement_*` qualities.
-
-Important UI timing note:
-the engine applies `scene.achievement` after the current scene content is rendered. If you want to display “Achievement unlocked” reliably, show it on the next scene (or in a sidebar scene like `progress.scene.dry`) rather than expecting it to appear in the same scene on first render.
-
-### Core achievement state
-
-Use Dendry’s built-in achievement mechanism as the source of truth:
-
-- Award via a scene property: `achievement: <achievement_name>`
-- The engine automatically sets and persists the quality `achievement_<achievement_name> = 1`
-- In text/conditions, always check `achievement_<achievement_name>` (not separate custom flags)
-
-Recommendation: keep `achievement_name` values consistent and easy to query (prefer `lower_snake_case`, e.g. `first_landing`).
-
-Add a small set of helper qualities for UI/recency display (maintained by our own guarded logic so they don’t increment on revisits):
-
-- `achvm_last` (text): last unlocked achievement label
-- `achvm_icon` (text): icon for the last unlocked achievement
-- `achvm_count` (number): total unlocked achievements (one-time increments)
-
-Planned achievement names (become qualities like `achievement_first_landing`):
+### Player-facing achievements (keep this small)
 
 - `first_landing`
 - `tea_companion`
 - `holtext_created`
 - `filter_navigator`
-- `weak_link_spotter`
-
-Optional:
-
 - `framework_finished`
 
-### Badge philosophy
+## Achievement meanings
 
-Avoid arcade-style achievements.
-
-Use achievements as moments of recognition for understanding, completion, and good stewardship.
-
-### Improved milestone achievements
-
-#### First Landing
+### `first_landing`
 
 Unlock when:
 
-- the harbour is reached
+- the player reaches `3_harbour.scene.dry`
 
-Narrative role:
+Purpose:
 
-- first sense of arrival and entry into the world
+- first sense of arrival
 
-Suggested icon:
-
-- `⚓`
-
-Sidebar line:
-
-- `New achievement: First Landing`
-
-#### Tea Companion
+### `tea_companion`
 
 Unlock when:
 
-- the teahouse is reached
+- the player enters `4_teahouse.scene.dry`
 
-Narrative role:
+Purpose:
 
-- marks entry into guided learning and conversation
+- marks the shift into guided learning
 
-Suggested icon:
-
-- `☕`
-
-Sidebar line:
-
-- `New achievement: Tea Companion`
-
-#### Holtext created
+### `holtext_created`
 
 Unlock when:
 
-- the Holistic Context is fully completed
+- the player completes `22_holtext.scene.dry`
 
-Narrative role:
+Purpose:
 
-- the player has moved from information gathering to coherent design
+- recognizes the moment the framework becomes coherent
 
-Suggested icon:
-
-- `✧`
-
-Sidebar line:
-
-- `New achievement: Holistic context created`
-
-#### Filter Navigator
+### `filter_navigator`
 
 Unlock when:
 
-- all seven filter-question clusters are complete
+- `fltr-progress` reaches `7`
 
-Narrative role:
+Purpose:
 
-- the player can now evaluate decisions instead of just naming goals
+- rewards completion of the full decision-check method
 
-Suggested icon:
+### `framework_finished`
 
-- `🧭`
+Unlock when:
 
-Sidebar line:
+- the player reaches `33_framework_outro.scene.dry`
 
-- `New achievement: Filter Navigator`
+Purpose:
 
-### Knowledge achievements
+- gives final closure
 
-These already fit well and should remain:
+## Helper UI State
 
-- **Weak Link Spotter** — unlock after the weak-link explanation is unlocked
+Use a very small helper layer for sidebar display:
 
-Good additions:
+- `achvm-last`
+- `achvm-count`
+- `knwl-last`
 
-- **Intuition** — unlock when the gut-feel explanation is unlocked after the previous filter arc
-- Maybe some more about the filters?
+Recommended meanings:
 
-## Sidebar Layout Plan
+- `achvm-last`: latest unlocked achievement label
+- `achvm-count`: count of earned achievements
+- `knwl-last`: latest unlocked concept label
 
-Replace the current single top block in `progress.scene.dry` with a compact dashboard.
+Do not add `achvm-icon` in v1. Text is enough.
 
-### Left sidebar
+## Minimal Ruleset (No Big Guard System)
 
-The left sidebar should remain the player-state and decision-support area.
+We do not need a large set of guard qualities.
 
-Recommended contents:
+Instead of incrementing progress in many scenes and trying to protect it from revisits, compute the 3 track values from the existing core qualities whenever the progress sidebar renders.
 
-- progress tracks
-- latest achievement
-- Holistic Context (after it is created)
-- current decision or current filter status
-- latest unlocked knowledge line
+This is simpler, avoids double-counting, and automatically treats `Skipped` as valid completion.
 
-Example latest knowledge lines:
+## Initialization Plan
 
-- `New knowledge: Weak Link`
-- `New knowledge: Cause and Effect`
-- `New knowledge: Whole Under Management`
+Update `source/scenes/root.scene.dry`.
 
-### Right sidebar
-
-The right sidebar should remain the knowledge and reference area.
-
-Recommended contents:
-
-- full knowledge codex
-- unlocked explanations
-- deeper concept descriptions
-- optional grouped sections such as `Foundations`, `Holistic Context`, and `Filters`
-
-### Recommended order
-
-1. dashboard title
-2. four track cards
-3. latest achievement line
-4. latest unlocked knowledge line
-5. earned achievement badges
-6. Holistic Context
-7. current decision or current filter status
-8. optional concept chips
-9. final summary card once the framework is complete
-
-### Dashboard title
-
-- `Progress`
-
-### Track cards
-
-Each card should contain:
-
-- track title
-- qdisplay-rendered progress bar
-- short status text
-- completed state styling when full
-
-### Achievement line
-
-Show a short line directly under the tracks:
-
-- `New achievement: Holistic Context created`
-
-### Latest knowledge line
-
-Show a short line for the most recently unlocked knowledge beat:
-
-- `New knowledge: Weak Link`
-- `New knowledge: Cause and Effect`
-- `New knowledge: Whole Under Management`
-
-Keep this simple:
-
-- one line only
-- replaced whenever newer knowledge unlocks
-- driven by `knwl_last`
-
-### Earned badges
-
-Show compact earned badges only for unlocked achievements.
-
-Badges should be short and elegant:
-
-- `⚓ First Landing`
-- `☕ Tea Companion`
-- `✧ Holistic Context created`
-- `🧭 Filter Navigator`
-
-### Relationship to right sidebar
-
-The left sidebar and right sidebar should not duplicate each other.
-
-- the left sidebar is the place that tracks and signals the unlock
-- the right sidebar holds the full unlocked explanation
-- both should use the same concept name so the connection is immediate
-- the right sidebar should never preview locked knowledge before the left sidebar unlocks it
-
-## Completed State and Animation
-
-The completion effect should be subtle and celebratory.
-
-### Visual behavior
-
-- when a track reaches its max value, append `✦ Complete`
-- apply a short shimmer effect to that card or bar
-- do not animate continuously after the initial moment
-
-### CSS approach
-
-Add classes for:
-
-- track card
-- track card complete state
-- achievement badge
-- new achievement line
-- shimmer effect
-
-The shimmer should be:
-
-- short
-- elegant
-- aligned with the existing glass-and-harbour aesthetic
-
-No confetti, no looping sparkle storm, and no loud arcade treatment.
-
-## Stronger Naming Changes
-
-Replace utilitarian labels where possible.
-
-### Replace
-
-- `Creation Prozess`
-- `Filter Questions`
-
-### With
-
-- `Voyage Through Complexity`
-- `Holistic Context Created`
-- `Decision Checks finished`
-- `Known Concepts`
-
-These should appear in the visible dashboard even if the underlying scene structure stays the same.
-
-## Final Summary Card
-
-When the player reaches the end, show a summary card in the outro section that answers:
-
-- who is the whole under management
-- what quality of life they defined
-- what future resource base they committed to
-- what action they tested
-- what achievements they earned
-
-Suggested card title:
-
-- `What You Built`
-
-This gives closure and makes the final state feel earned.
-
-## File-by-File Implementation Plan
-
-### 1. `source/scenes/root.scene.dry`
-
-Initialize all new visible-progress variables and achievement variables.
+Add `on-arrival` initialization for all new helper qualities.
 
 Recommended initial values:
 
-- `jrny_progress = 0`
-- `hctx_progress = 0`
-- `fltr_progress = 0`
-- `knwl_progress = 0`
-- `achievement_count = 0`
-- `knwl_last = 0`
+- `jrny-progress = 0`
+- `htx-progress = 0`
+- `fltr-progress = 0`
+- `achvm-count = 0`
+- `achvm-last = 0`
+- `knwl-last = 0`
 
-Initialize achievement flags to `0` only if needed for clarity.
+No other guard qualities are required for v1.
 
-Also initialize the one-time knowledge unlock flags only if explicit initialization makes the implementation easier to read.
+## Scene Hook Plan
 
-### 2. Narrative milestone scenes
+This section is the implementation-ready minimal mapping.
 
-Update key scenes to award journey progress and milestone achievements:
+## 1) Compute track values in `progress.scene.dry`
 
-- `3_harbour.scene.dry`
-- `4_teahouse.scene.dry`
-- `22_holtext.scene.dry`
-- `31_fq_result.scene.dry` or `32_fq_revisit.scene.dry`
-- `33_framework_outro.scene.dry`
+Add an `on-display` block at the top of `source/scenes/progress.scene.dry` that sets:
 
-### 3. Knowledge scenes
+- `jrny-progress` from `progress` thresholds
+- `hctx-progress` from whether key framework qualities are filled in
+- `fltr-progress` from whether each conceptual check has any recorded answer (including `Skipped`)
 
-Add guarded one-time knowledge unlock logic to the scenes where explanation beats happen.
+### Journey computation
 
-Primary candidates:
+Use the existing `progress` pacing number:
 
-- `4_teahouse.scene.dry`
-- `5_wum_intro.scene.dry`
-- `23_fq_intro.scene.dry`
-- `24_fq_cause_effect.scene.dry`
-- `25_fq_weak_link.scene.dry`
-- `26_fq_marginal_reaction.scene.dry`
-- `27_fq_gross_profit.scene.dry`
-- `28_fq_energy_money.scene.dry`
-- `29_fq_sustainability.scene.dry`
-- `30_fq_gut_feel.scene.dry`
+- `jrny-progress = 0` if `progress < 3`
+- `jrny-progress = 1` if `progress >= 3`
+- `jrny-progress = 2` if `progress >= 5`
+- `jrny-progress = 3` if `progress >= 26`
+- `jrny-progress = 4` if `progress >= 42`
 
-### 4. Context scenes
+This works even if the player revisits later scenes, because it always reflects the furthest milestone reached.
 
-Increment context progress only at meaningful completion points rather than every scene entry.
+### Holistic Context computation (0..9)
 
-Primary candidates:
+Compute by counting completed framework parts (presence checks, not “quality of answer”):
 
-- `7_wum_dmkrs_one_group.scene.dry`
-- `8_wum_dmkrs_org.scene.dry`
-- `9_wum_rb_physical.scene.dry`
-- `10_wum_rb_human.scene.dry`
-- `11_wum_money.scene.dry`
-- `12_statement_of_purpose.scene.dry`
-- `14_qol_economic_wellbeing.scene.dry`
-- `15_qol_relationships.scene.dry`
-- `16_qol_challenge_growth.scene.dry`
-- `17_qol_purpose.scene.dry`
-- `18_qol_contribution.scene.dry`
-- `20_frb_people.scene.dry`
-- `21_frb_environment.scene.dry`
-- `22_holtext.scene.dry`
+- decision-makers: `decision-makers != 0`
+- physical resources: `rb-physical != 0`
+- human resources: `rb-human != 0`
+- money: `wum-money != 0`
+- statement of purpose: count as complete if `player != "org"` OR `st-purpose != 0`
+- quality of life complete: use the most reliable existing flag/condition in the current script (e.g. `qol-statement-complete = 1` if present, otherwise check the required `qol-*` fields)
+- FRB people: `frb-people != 0`
+- FRB environment: `frb-environment != 0`
+- holtext written: `holtext != 0`
 
-### 5. Filter scenes
+Set `hctx-progress` to that count, capped to `9`.
 
-Update filter progress when each conceptual filter cluster is complete.
+### Decision Checks computation (0..7), no skip penalty
 
-Primary candidates:
+Each conceptual check counts as complete if its stored answer quality is not `0`. `Skipped` counts as complete.
 
-- `24_fq_cause_effect.scene.dry`
-- `25_fq_weak_link.scene.dry`
-- `26_fq_marginal_reaction.scene.dry`
-- `27_fq_gross_profit.scene.dry`
-- `28_fq_energy_money.scene.dry`
-- `29_fq_sustainability.scene.dry`
-- `30_fq_gut_feel.scene.dry`
+- Cause and Effect: `fltr-cause != 0`
+- Weak Link cluster: `wl-social != 0` AND `wl-biological != 0` AND `wl-financial != 0`
+- Marginal Reaction: `fltr-marginal != 0`
+- Gross Profit: `fltr-profit != 0`
+- Source and Use cluster: `em-source != 0` AND `em-use != 0`
+- Sustainability cluster: `sus-behaviour != 0` AND `sus-environment != 0`
+- Gut Feel: `fltr-gut != 0`
 
-### 6. `source/scenes/progress.scene.dry`
+Set `fltr-progress` to the number of completed conceptual checks, capped to `7`.
 
-Refactor the top of the sidebar into the new dashboard and keep the lower written recap.
+This automatically ignores revisit double-counting and treats `Skipped` as valid completion.
 
-This file becomes the main composition layer for:
+## 2) Award only the player-facing achievements in key scenes
 
+These are badges, so use persistent `achievement: ...` and let `reset_achievements.scene.dry` clear them.
+
+- `3_harbour.scene.dry`: `achievement: first_landing`
+- `4_teahouse.scene.dry`: `achievement: tea_companion`
+- `22_holtext.scene.dry`: `achievement: holtext_created`
+- `31_fq_result.scene.dry`: `achievement: filter_navigator`
+- `33_framework_outro.scene.dry`: `achievement: framework_finished`
+
+## 3) Minimal “latest knowledge” line (optional but recommended)
+
+Keep the existing minimal `knwl-last` idea, but do not build a large unlock system.
+
+Use 3 to 5 one-time flags (`knwl-complexity`, `knwl-whole`, `knwl-holtext`, `knwl-filters`, `knwl-weak-link`) to update `knwl-last` only the first time each concept is introduced.
+
+## 4. Knowledge signal hooks
+
+Keep these minimal.
+
+### `source/scenes/4_teahouse.scene.dry`
+
+Unlock:
+
+- `Complexity`
+
+### `source/scenes/5_wum_intro.scene.dry`
+
+Unlock:
+
+- `Whole Under Management`
+
+### `source/scenes/22_holtext.scene.dry`
+
+Unlock:
+
+- `Holistic Context`
+
+### `source/scenes/23_fq_intro.scene.dry`
+
+Unlock:
+
+- `Seven Checks`
+
+### `source/scenes/25_fq_weak_link.scene.dry`
+
+Unlock:
+
+- `Weak Link`
+
+Rule:
+
+- each concept only updates `knwl-last` once, the first time it is taught
+
+## Qdisplay Plan
+
+Replace the single all-purpose qdisplay with 3 focused qdisplays:
+
+- `source/qdisplays/qjrny-progress.qdisplay.dry`
+- `source/qdisplays/qhctx-progress.qdisplay.dry`
+- `source/qdisplays/qfltr-progress.qdisplay.dry`
+
+Each qdisplay should render:
+
+- a short title
+- one `<progress>` element
+- one short status line
+
+Recommended track titles:
+
+- `Journey`
+- `Holistic Context`
+- `Decision Checks`
+
+Do not add a knowledge qdisplay in v1.
+
+## `progress.scene.dry` Composition Plan
+
+Refactor only the top block. Keep the existing lower recap sections.
+
+Recommended order:
+
+1. `Progress` heading
+2. `[+ jrny-progress : qjrny-progress +]`
+3. `[+ hctx-progress : qhctx-progress +]`
+4. `[+ fltr-progress : qfltr-progress +]`
+5. latest achievement line if `achvm-last != 0`
+6. latest concept line if `knwl-last != 0`
+7. earned badges list driven by `achievement_*`
+8. existing Holistic Context and filter recap
+
+Recommended text:
+
+- `Latest achievement: [+ achvm-last +]`
+- `Latest concept: [+ knwl-last +]`
+
+Badge rendering should be conditional, for example:
+
+- First Landing
+- Tea Companion
+- Holistic Context Created
+- Filter Navigator
+- Framework Finished
+
+## Styling Plan
+
+Edit:
+
+- `out/html/game.css`
+
+Reason:
+
+- this project currently styles the UI directly there
+- README already points to `out/html/game.css` for stylesheet changes
+
+Add only the styles needed for:
+
+- dashboard container
 - track cards
 - latest achievement line
+- latest concept line
 - earned badges
-- final summary card
 
-### 7. New qdisplay files
+If you want a nice animation in v1, keep it subtle and one-time (no looping), and tie it to a “track completed” state (e.g. when a track hits max).
 
-Implement one display file per visible track.
+## Reset Plan
 
-Each should output:
+Update:
 
-- title
-- `<progress>` element
-- short status line
-- `✦ Complete` when maxed
+- `source/scenes/reset_achievements.scene.dry`
 
-### 8. CSS layer
+It should also clear:
 
-Add styling for the new dashboard elements in the project stylesheet used by the generated HTML.
+- `achvm-last`
+- `achvm-count`
+- `knwl-last`
 
-Main targets:
+and all new guard qualities.
 
-- progress dashboard container
-- track cards
-- complete state
-- shimmer animation
-- achievement badges
-- final summary card
+This keeps the test/reset flow reliable.
 
-## Recommended Delivery Order
+## Implementation Order
 
 ### Phase 1
 
-- add new variables
-- add four qdisplay files
-- replace the single progress display in the sidebar
+- add helper qualities in `root.scene.dry`
+- add the 3 qdisplay files
+- refactor the top of `progress.scene.dry`
+- add minimal CSS for the dashboard
 
 ### Phase 2
 
-- wire up journey, context, filter, and knowledge progression
-- add milestone achievements
+- wire Journey progression
+- wire Holistic Context progression
+- wire Decision Checks progression
 
 ### Phase 3
 
-- add knowledge achievements
-- add latest-achievement line
-- add earned-badge rendering
+- add the achievement properties
+- add `achvm-last`, `achvm-count`, and `knwl-last` updates
+- update reset scene
 
 ### Phase 4
 
-- add complete-state shimmer styling
-- add final summary card
-- remove old single-bar UI once everything is stable
+- test revisit behavior carefully
+- remove old `qprogress` usage once the new dashboard is stable
 
-## Validation Checklist
+## Acceptance Criteria
 
-After implementation, verify:
+The feature is done when all of the following are true:
 
-- all new variables initialize correctly on a fresh run
-- revisiting scenes does not duplicate progress or achievements
-- non-organisation runs still complete the context track correctly
-- weak link, source/use, and sustainability only award filter progress when their clusters are complete
-- knowledge progress only increments once per concept
-- the sidebar remains readable in both themes
-- completion shimmer appears only on full completion states
-- the final summary card renders meaningful content for all player modes
+- a fresh run shows all 3 new tracks at zero
+- the Journey track reflects the furthest milestone reached (based on `progress`)
+- the Holistic Context track reaches `9` for both org and non-org paths
+- the Decision Checks track reaches `7` once each conceptual check has any stored answer (including `Skipped`)
+- skipped sub-checks count as valid completion and do not block track progress
+- revisiting scenes never duplicates track progress (tracks are computed, not incremented)
+- achievements appear in the sidebar through `achievement_*` conditions
+- the latest achievement line and latest concept line update correctly
+- the left sidebar remains readable on desktop and mobile
+
+## Explicit Non-Goals
+
+To prevent scope creep, do not include these in the initial implementation:
+
+- a fourth knowledge bar
+- a large right-sidebar unlock tree
+- complex badge metadata
+- summary cards with lots of generated text
 
 ## Final Recommendation
 
-The most important design choice is this:
+The right v1 is not "more systems."
 
-Do not treat the new system as four decorative copies of the old progress bar.
+The right v1 is:
 
-Each track should represent a different kind of accomplishment:
+- 3 bars
+- a few well-chosen achievements
+- one concept-discovery line
+- solid one-time guard logic
 
-- narrative travel
-- framework construction
-- decision mastery
-- learning and knowledge
-
-That difference is what will make the experience feel exciting instead of merely more crowded.
+That will improve motivation and fun while staying faithful to the framework and keeping implementation risk low.
